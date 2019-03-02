@@ -19,7 +19,7 @@
     ================================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <title>CARDIAC COUNTERMEASURE: Home</title>
+     <title>CARDIAC COUNTERMEASURE:  Doctor Home</title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -138,50 +138,7 @@
     <!-- END SCROLL TOP BUTTON -->
 
     <!--=========== BEGIN HEADER SECTION ================-->
-    <header id="header">
-      <!-- BEGIN MENU -->
-      <div class="menu_area">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">  
-          <div class="container">
-            <div class="navbar-header">
-              <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <!-- LOGO -->              
-              <!-- TEXT BASED LOGO -->
-              <a class="navbar-brand" href="index.html"><i class="fa fa-heartbeat"></i><span style="font-family: cursive">CARDIAC COUNTERMEASURE</span></a>              
-              <!-- IMG BASED LOGO  -->
-              <!--  <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>   -->                    
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-                  <li class="active"><a href="doctorhomepage.jsp">Home</a></li>
-                
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="fa fa-angle-down"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                      <li><a href="Lab_Appointment_List.jsp">List of Appointment</a></li>
-                      <li><a href="Lab_Approved_appointment.jsp">Approved Appointment</a></li>
-                 </ul>
-                </li>
-                
-                  <li><a href="Blogs.jsp">Blogs</a></li>
-                </li>
-                 
-                <li><a href="features.html">FAQs</a></li>
-                <li><a href="ContactUs.jsp">Contact Us</a></li>
-                <li><a href="Doctor_myprofile.jsp">My Profile</a></li>
-              </ul>           
-            </div><!--/.nav-collapse -->
-          </div>     
-        </nav>  
-      </div>
-      <!-- END MENU -->    
-    </header>
+    <%@include file="header_doctor.jsp" %>
     <!--=========== END HEADER SECTION ================-->   
      <!--=========== BEGIN SLIDER SECTION ================-->
     
@@ -198,7 +155,7 @@
                String fname=d.getDFirstname(); 
                String lname = d.getDLastname();
          %>
-         <h2>Welcome <%=fname + " " +lname%></h2>
+         <h2>Welcome Dr. <%=fname + " " +lname%></h2>
          <%}%>
               </div>
               <div class="blog-breadcrumbs-right">
@@ -227,19 +184,13 @@
             <h2> <strong></strong> we provide asylum at your doorsteps</h2>
             <p><strong>Cardiac Countermeasure</strong> One thing you need for your whole cardiac problem</p>
             <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Read More</span></a>                
+             
             </div>
           </div>
         </div>
         <!-- End First slide -->
 
-        <!-- Start 2nd slide -->
-        <div class="top-slide-inner">
-          <div class="slider-img">
-              <img src="images/images/images (11).jpg" alt="">
-          </div>
-          
-        </div>
+       
         <!-- End 2nd slide -->
 
         <!-- Start Third slide -->
@@ -250,7 +201,7 @@
           <div class="slider-text">
             <h2>A <strong></strong> Best and quick laboratory services for various cardiac tests</h2>
                         <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Read More</span></a>                
+             
             </div>
           </div>
         </div>
@@ -265,7 +216,7 @@
             <h2><strong>Best Cardiac assistance</strong> For your Cardiovascular problems</h2>
             <p><strong></strong> You can know which cardiac is available and quickly consult an cardiac in emergency</p>
             <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Read More</span></a>                
+             
             </div>
           </div>
         </div>
@@ -277,67 +228,8 @@
       </div><!-- /top-slider -->
     </section>
    
-     <!--=========== BEGIN Top Feature SECTION ================-->
-    <section id="topFeature">
-      <div class="row bck_img">
-        <!-- Start Single Top Feature -->
-        <div class="col-lg-6 col-lg-6">
-          <div class="row row_1">
-              <div class="rcorners1" >
-              
-              <h3>Quick Chats</h3>
-               <ul class="opening-table">
-                <li>
-                  <span>Jui Desai</span>
-                  <div class="btn-upload"><button style="color: black"; class="button">Start Chat </button></div>
-                </li>
-                <li>
-                  <span>Rishabh Shah</span>
-                  <div class="btn-upload"><button style="color: black"; class="button">Start Chat </button></div>
-                </li>
-                <li>
-                  <span>Shruti Shah</span>
-                  <div class="btn-upload"><button style="color: black"; class="button">Start Chat </button></div>
-                </li>
-                
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- End Single Top Feature -->
-         
-        <!-- Start Single Top Feature -->
-        <div class="col-lg-6 col-lg-6">
-          <div class="row row_1">
-            <div class="rcorners2">
-              
-              <h3>Appointment time</h3>
-              
-              <ul class="opening-table">
-                <li>
-                  <span>Jui Desai</span>
-                  <div class="value">8.00 P.M</div>
-                </li>
-                <li>
-                  <span>Rishabh Shah</span>
-                  <div class="value">9.30 A.M</div>
-                </li>
-                <li>
-                  <span>Zeel Patel</span>
-                  <div class="value">9.30 P.M</div>
-                </li>
-              </ul>              
-            </div>
-          </div>
-        </div>
-        <!-- End Single Top Feature -->
-
-        <!-- Start Single Top Feature -->
-        
-        <!-- End Single Top Feature -->
-      </div>
-    </section>
-    <!--=========== END Top Feature SECTION ================-->
+     
+    
     <!--=========== BEGAIN Home Blog SECTION ================-->
     <section id="homeBLog">
       <div class="container">
@@ -357,22 +249,22 @@
                     <div class="single-Blog">
                       <div class="single-blog-left">
                         <ul class="blog-comments-box">
-                          <li>May <h2>10</h2>2015</li>
-                          <li><span class="fa fa-eye"></span>1523</li>
-                          <li><a href="#"><span class="fa fa-comments"></span>5</a></li>
+                          <li>May <h2>10</h2>2016</li>
+                          <li><span class="fa fa-eye"></span>20</li>
+                          <!--<li><a href="#"><span class="fa fa-comments"></span>5</a></li>-->
                         </ul>
                       </div>
                       <div class="single-blog-right">
                         <div class="blog-img">
                           <figure class="blog-figure">
-                           <a href="#"><img src="images/choose-us-img3.jpg" alt="img"></a>
+                              <a href="#"><img src="images/heart-healthy-people.jpg" alt="img"></a>
                             <span class="image-effect"></span>
                           </figure>
                         </div>
                         <div class="blog-author">
                           <ul>
                             <li>By <a href="#">Dr. Smith</a></li>
-                            <li>In <a href="#">caridac</a></li>
+                            <!--<li>In <a href="#">caridac</a></li>-->
                           </ul>
                         </div>
                         <div class="blog-content">
@@ -391,26 +283,28 @@
                       <div class="single-blog-left">
                         <ul class="blog-comments-box">
                           <li>May <h2>10</h2>2015</li>
-                          <li><span class="fa fa-eye"></span>1523</li>
-                          <li><a href="#"><span class="fa fa-comments"></span>5</a></li>
+                          <li><span class="fa fa-eye"></span>23</li>
+                          <!--<li><a href="#"><span class="fa fa-comments"></span>5</a></li>-->
                         </ul>
                       </div>
                       <div class="single-blog-right">
                          <div class="blog-img">
                           <figure class="blog-figure">
-                           <a href="#"><img src="images/choose-us-img3.jpg" alt="img"></a>
+                              <a href="#"><img src="images/heart-healthy-people.jpg" alt="img"></a>
                             <span class="image-effect"></span>
                           </figure>
                         </div>
                         <div class="blog-author">
                           <ul>
                             <li>By <a href="#">Dr. Smith</a></li>
-                            <li>In <a href="#">Dental</a></li>
+                            <!--<li>In <a href="#">Dental</a></li>-->
                           </ul>
                         </div>
                         <div class="blog-content">
-                          <h2>Latest Trend Of Medical Dental Department</h2>
-                          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                          <h2>The Healthy Foodie</h2>
+                          <p>In a world where high-fat, processed foods run the market, committing to heart-healthy food can seem impossible (and downright unappetizing). The Healthy Foodie offers solutions to such dilemmas with easy, homemade foods that nourish your body.
+
+Sonia, who decided to make significant health changes during her mid-30s, started the blog. Known as the ‚??Healthy Foodie,‚?ù Sonia shares a wealth of healthy recipes with a ‚??paleo‚?ù (low, low carbs) flavor. Sonia will help you keep both your heart and weight in check.</p>
                           <div class="readmore_area">
                             <a href="#" data-hover="Read More"><span>Read More</span></a>                
                           </div>
@@ -423,27 +317,29 @@
                     <div class="single-Blog">
                       <div class="single-blog-left">
                         <ul class="blog-comments-box">
-                          <li>May <h2>10</h2>2015</li>
-                          <li><span class="fa fa-eye"></span>1523</li>
-                          <li><a href="#"><span class="fa fa-comments"></span>5</a></li>
+                          <li>May <h2>11</h2>2016</li>
+                          <li><span class="fa fa-eye"></span>25</li>
+                          <!--<li><a href="#"><span class="fa fa-comments"></span>5</a></li>-->
                         </ul>
                       </div>
                       <div class="single-blog-right">
                          <div class="blog-img">
                           <figure class="blog-figure">
-                           <a href="#"><img src="images/choose-us-img3.jpg" alt="img"></a>
+                              <a href="#"><img src="images/heart-healthy-people.jpg" alt="img"></a>
                             <span class="image-effect"></span>
                           </figure>
                         </div>
                         <div class="blog-author">
                           <ul>
                             <li>By <a href="#">Dr. Smith</a></li>
-                            <li>In <a href="#">Dental</a></li>
+                            <!--<li>In <a href="#">Dental</a></li>-->
                           </ul>
                         </div>
                         <div class="blog-content">
-                          <h2>Latest Trend Of Medical Dental Department</h2>
-                          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                          <h2>The Healthy Foodie</h2>
+                          <p>In a world where high-fat, processed foods run the market, committing to heart-healthy food can seem impossible (and downright unappetizing). The Healthy Foodie offers solutions to such dilemmas with easy, homemade foods that nourish your body.
+
+Sonia, who decided to make significant health changes during her mid-30s, started the blog. Known as the ‚??Healthy Foodie,‚?ù Sonia shares a wealth of healthy recipes with a ‚??paleo‚?ù (low, low carbs) flavor. Sonia will help you keep both your heart and weight in check.</p>
                           <div class="readmore_area">
                             <a href="#" data-hover="Read More"><span>Read More</span></a>                
                           </div>

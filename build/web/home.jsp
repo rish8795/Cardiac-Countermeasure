@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,43 +65,7 @@
     <!-- END SCROLL TOP BUTTON -->
 
     <!--=========== BEGIN HEADER SECTION ================-->
-    <header id="header">
-      <!-- BEGIN MENU -->
-      <div class="menu_area">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">  
-          <div class="container">
-            <div class="navbar-header">
-              <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <!-- LOGO -->              
-              <!-- TEXT BASED LOGO -->
-              <a class="navbar-brand" href="home.jsp"><i class="fa fa-heartbeat"></i><span style="font-family: cursive;">CARDIAC COUNTERMEASURE</span></a>              
-              <!-- IMG BASED LOGO  -->
-              <!--  <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>   -->                    
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-                  <li class="active"><a href="home.jsp">Home</a></li>
-                <li><a href="about_us.jsp">About Us</a></li>
-                
-                <li><a href="ContactUs.jsp">ContactUs</a></li>
-                <li> <a href="forums.jsp">FORUMS </a> </li>
-                <li><a href="blog-archive-with-left-sidebar.html">FAQ</a> </li>
-                <li> <a href="Blogs.jsp">BLOGS</a></li>
-                <li><a href="login.jsp">LOGIN</a></li>               
-                <li><a href="Whoru.jsp">SIGNUP</a></li>
-              </ul>           
-            </div><!--/.nav-collapse -->
-          </div>     
-        </nav>  
-      </div>
-      <!-- END MENU -->    
-    </header>
+    <%@include file="header_home.jsp" %>
     <!--=========== END HEADER SECTION ================-->   
  
     <!--=========== BEGIN SLIDER SECTION ================-->
@@ -115,9 +80,7 @@
           <div class="slider-text">
             <h2> <strong></strong> we provide asylum at your doorsteps</h2>
             <p><strong>Cardiac Countermeasure</strong> One thing you need for your whole cardiac problem</p>
-            <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Read More</span></a>                
-            </div>
+            
           </div>
         </div>
         <!-- End First slide -->
@@ -125,7 +88,12 @@
         <!-- Start 2nd slide -->
         <div class="top-slide-inner">
           <div class="slider-img">
-              <img src="images/images/images (11).jpg" alt="">
+              <img src="images/Medical-Touchscreen-Technology-1.jpg" alt="">
+          </div>
+            <div class="slider-text">
+            <h2> <strong> Know Your Heart-attack chances in just one touch </strong></h2>
+            
+            
           </div>
           
         </div>
@@ -139,7 +107,7 @@
           <div class="slider-text">
             <h2>A <strong></strong> Best and quick laboratory services for various cardiac tests</h2>
                         <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Read More</span></a>                
+            
             </div>
           </div>
         </div>
@@ -232,8 +200,8 @@
                       <div class="service-icon">
                         <span class="fa fa-stethoscope service-icon-effect"></span>  
                       </div>                      
-                      <h3><a href="#">Cardiac Monitoring</a></h3>
-                      <p>this is a tool which monitors your day to day life and if you are taking any resources in abundant manner it will warn you.</p>
+                      <h3><a href="#">Doctor Appointment</a></h3>
+                      <p>Doctor Appointment can be taken within a minute. No need to search every hospital if cardiologist is available or not</p>
                     </div>
                   </div>
                   <!-- Start Single Service -->
@@ -256,19 +224,10 @@
                       <p>There are various factors in your day to day life which can lead you to heart-attack and you are never aware baout it, let's test your risk factor.</p>
                     </div>
                   </div>
+                  
                   <!-- Start Single Service -->
                   <div class="col-lg-4 col-md-4">
-                    <div class="single-service">
-                      <div class="service-icon">
-                        <span class="fa fa-medkit service-icon-effect"></span>  
-                      </div>                      
-                      <h3><a href="#">Background Checks</a></h3>
-                      <p>Background check is an tool which keeps the record of your family memeber details in an emergency situation and it also keeps the record of patient family memebers cardiac details</p>
-                    </div>
-                  </div>
-                  <!-- Start Single Service -->
-                  <div class="col-lg-4 col-md-4">
-                    <div class="single-service">
+                    <div class="single-service" style="margin-left: 172px; margin-bottom: -5px">
                       <div class="service-icon">
                         <span class="fa fa-user-md service-icon-effect"></span>  
                       </div>                      
@@ -278,7 +237,7 @@
                   </div>
                   <!-- Start Single Service -->
                   <div class="col-lg-4 col-md-4">
-                    <div class="single-service">
+                    <div class="single-service" style="margin-left: 190px; margin-bottom: -5px">
                       <div class="service-icon">
                         <span class="fa fa-ambulance service-icon-effect"></span>  
                       </div>                      

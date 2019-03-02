@@ -4,6 +4,8 @@
     Author     : admin
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.State"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +15,48 @@
     ================================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript">
+            function GetCityNames()
+            {
+                var sid = document.getElementById("idstate").value;
+                var url = "GetCityServ?state="+sid;
+                var xmlReq = new XMLHttpRequest();
+                xmlReq.onreadystatechange = function ()
+                {
+                    if(xmlReq.status==200)
+                    {
+                        document.getElementById("idcity").innerHTML = xmlReq.responseText;
+                    }
+                    
+                }
+                xmlReq.open("get",url,true);
+               
+                xmlReq.send();
+                //alert(sid);
+            }
+        </script>
+        
+         <script type="text/javascript">
+            
+           function myFunction() {
+    var pass1 = document.getElementById("pass1").value;
+    var pass2 = document.getElementById("pass2").value;
+    var ok = true;
+    if (pass1 != pass2) {
+        alert("Passwords Do not match");
+        document.getElementById("pass1").style.borderColor = "#E34234";
+        document.getElementById("pass2").style.borderColor = "#E34234";
+        ok = false;
+    }
+    else {
+//        alert("Passwords Match!!!");
+    }
+    return ok;
+}
+        </script>
+
+    
+
      <title>CARDIAC COUNTERMEASURE : Doctor Registration </title>
 
     <!-- Mobile Specific Metas
@@ -103,11 +147,11 @@
           <div class="col-lg-7 col-md-7 col-sm-6">
             <div class="contact-form">
               <div class="section-heading">
-                <h2> Doctor Registration Page</h2>
+                <h2> Registration Page</h2>
                 <div class="line"></div>
               </div>
               <p>Fields mark with * are compulsory</p>
-              <form name="doctorreg" method="post" class="submitphoto_form" action="docreg">
+              <form name="doctorreg" method="post" enctype="multipart/form-data" class="submitphoto_form" action="docreg" onsubmit="return myFunction()">
                   First Name: <input required type="text" class="wp-form-control wpcf7-text" placeholder="First name" name="d_firstname"></br>
                   Last Name: <input required type="text" class="wp-form-control wpcf7-text" placeholder="Last name" name="d_lastname"></br>
                 Gender: <select name="gender"class="wp-form-control wpcf7-text" placeholder="Gender">
@@ -117,30 +161,49 @@
                </select></br>
                Birth Date: <input required type="date" class="wp-form-control wpcf7-text" placeholder="Birth Date" name="birth_date"></br>
                Email id: <input required type="mail" class="wp-form-control wpcf7-email" placeholder="Email address" name="email_id"></br>
-               Contact number: <input required type="text" class="wp-form-control wpcf7-text" placeholder="Contact Number" name="Cont_num"></br>
+               Contact number: <input required type="text" class="wp-form-control wpcf7-text" placeholder="Contact Number" min="10" maxlength="10" pattern="^[1-9]{1}[0-9]{9}$" title="First digit should not be 0 " title="Minimum and Maximum digits are 10" name="Cont_num"></br>
                Address line1:  <input required type="text" class="wp-form-control wpcf7-text"  placeholder="street"name="line1"></br>
                Address line2:  <input type="text" class="wp-form-control wpcf7-text"  placeholder="nearby" name="line2"></br>
-               State:  <input required type="text" class="wp-form-control wpcf7-text" placeholder="State"name="state"></br>
-               City: <input required type="text" class="wp-form-control wpcf7-text" placeholder="city" name="city"></br>
-               Pincode: <input required type="text" class="wp-form-control wpcf7-text" placeholder="pincode" name="pincode"></br>
+               State:  <select type="text" class="wp-form-control wpcf7-text"  name="state" id="idstate" onchange="GetCityNames();">
+                    
+                     <option>Select</option>
+            <% 
+                if(request.getAttribute("sli") != null)
+                {
+                    ArrayList<State> sli = (ArrayList<State>)request.getAttribute("sli");
+                    for(int i=0; i<sli.size();i++)
+                    {
+                        State sm = sli.get(i);
+                        %>
+                        <option value="<%=sm.getSId()%>">
+                            <%=sm.getStateName()%>
+                        </option>
+                        <%
+                    }
+                }
+            %>
+                </select></br>
+                City: <select type="text" id="idcity" class="wp-form-control wpcf7-text" name="city"></select></br>
+                Pincode: <input required type="text" class="wp-form-control wpcf7-text" placeholder="pincode" name="pincode"></br>
                Speciality: <select required name="spec_name" class="wp-form-control wpcf7-text" placeholder="Speciality" >
                     <option value="null">select one </option>
-                    <option value="1st speciality">1st speciality </option>
-                    <option value="2nd speciality">2nd speciality </option>
-                    <option value="3rd speciality">3rd speciality  </option>
-                    <option value="4th speciality">4th speciality </option>
+                    <option value="Cardiologist">Cardiologist </option>
+                    <option value="Paediatric Cardiologist">Paediatric Cardiologist </option>
+                    <option value="Cardio Surgeon">Cardio Surgeon  </option>
+                    <option value="MS Surgeon">MS Surgeon </option>
                 </select></br>
-                Degree: <select required name="qualification_name" class="wp-form-control wpcf7-text" placeholder="Speciality">
+                Select highest Degree achieved: <select required name="qualification_name" class="wp-form-control wpcf7-text" placeholder="Speciality">
                     <option value="null">select any one </option>
-                    <option value="1st degree">1st degree </option>
-                    <option value="2nd degree">2nd degree </option>
-                    <option value="3rd degree">3rd degree </option>
-                    <option value="4th degree">4th degree  </option>
-                    <option value="5th degree">5th degree </option>
+                    <option value="MBBS">MBBS </option>
+                    <option value="BS in Healthcare Administration">BS in Healthcare Administration </option>
+                    <option value="BS in Health science">BS in Health science</option>
+                    <option value="Master in Healthcare Administration">Master in Healthcare Administration  </option>
+                    <option value="Medical Specialties (AOS)">Medical Specialties (AOS) </option>
                 </select></br>
+                Upload Image of Highest Degree gain: <input required type="file" multiple="" class="wp-form-control" placeholder="upload image of certificate" name="image"></br>
                 User id: <input required type="text" class="wp-form-control wpcf7-text" placeholder="user id" name="user_id"></br>
-                Password: <input required name="password" type="password" class="wp-form-control wpcf7-text" placeholder="Password"></br>
-                Confirm Password <input required name="confirm" type="password" class="wp-form-control wpcf7-text" placeholder="Confirm Password"></br>
+                Password: <input required name="password" id="pass1" type="password" class="wp-form-control wpcf7-text" placeholder="Password"></br>
+                Confirm Password <input required name="confirm" id="pass2" type="password" class="wp-form-control wpcf7-text" placeholder="Confirm Password"></br>
                <button class="wpcf7-submit button--itzel" type="submit"><i class="button__icon fa fa-envelope"></i><span>REGISTER</span></button>                
               </form>
             </div>

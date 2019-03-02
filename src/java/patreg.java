@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Addressdetails;
+import model.City;
 import model.Login;
 import model.Patient;
+import model.State;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -49,11 +51,17 @@ public class patreg extends HttpServlet {
              lo.setRole("patient");
              ss.save(lo);
              
+             State s1 = new State();
+             s1.setSId(Integer.parseInt(request.getParameter("state")));
+             
+             City ci = new City();
+             ci.setCityId(Integer.parseInt(request.getParameter("city")));
+             
              Addressdetails ad = new Addressdetails();
              ad.setLine1(request.getParameter("line1"));
              ad.setLine2(request.getParameter("line2"));
-             ad.setCity(request.getParameter("city"));
-             ad.setState(request.getParameter("state"));
+             ad.setCityId(ci);
+             ad.setSId(s1);
              ad.setPincode(request.getParameter("pincode"));
              ss.save(ad);
              
@@ -67,6 +75,19 @@ public class patreg extends HttpServlet {
              pi.setAddressid(ad);
              pi.setUsedId(lo);
              ss.save(pi);
+             
+             String subject = "Registration Successfull";
+                         
+                        String content = "Hi," + pi.getPFirstname() + "" +pi.getPLastname()+ "\n" + "Your registration is completed. Welcome to Cardiac Countermeasure. "+".\n" +" your userid is:"+ pi.getUsedId().getUsername()+ ".\n";
+                                
+                                
+                        String mail = pi.getEmailId();
+
+                        String[] recipients = new String[]{mail};
+                        
+                      if (new MailUtil().sendMail(recipients, subject, content)) {
+
+                        }
              
             tr.commit();
             

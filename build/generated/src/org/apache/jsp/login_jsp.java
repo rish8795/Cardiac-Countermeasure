@@ -51,7 +51,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    \n");
       out.write("\t<meta charset=\"utf-8\">\n");
       out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n");
-      out.write("\t<title>CardiacCountermeasure:- SignIn</title>\n");
+      out.write("\t<title>Cardiac Countermeasure:- Log_In</title>\n");
       out.write("\n");
       out.write("\t<!-- Google Fonts -->\n");
       out.write("\t<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>\n");
@@ -88,7 +88,26 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t<div class=\"box-header\">\n");
       out.write("\t\t\t\t<h2>Log In</h2>\n");
       out.write("\t\t\t</div>\n");
-      out.write("\t\t\t<label  for=\"username\">Username</label>\n");
+      out.write("                    <label> <span style=\"color: red;\">\n");
+      out.write("                                ");
+ if (request.getAttribute("msg") != null) {
+      out.write("\n");
+      out.write("                                 ");
+      out.print(request.getAttribute("msg"));
+      out.write("\n");
+      out.write("                                 ");
+ }
+      out.write(" </span> </label>\n");
+      out.write("\t\t\t<label  for=\"username\">Username <span style=\"color: red;\">\n");
+      out.write("                                ");
+ if (request.getAttribute("msg") != null) {
+      out.write("\n");
+      out.write("                                 ");
+      out.print(request.getAttribute("msg"));
+      out.write("\n");
+      out.write("                                 ");
+ }
+      out.write(" </span> </label>\n");
       out.write("\t\t\t<br/>\n");
       out.write("                        <input required name=\"username\" type=\"text\" id=\"username\">\n");
       out.write("\t\t\t<br/>\n");
@@ -98,8 +117,8 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t<br/>\n");
       out.write("\t\t\t<button type=\"submit\">Sign In</button>\n");
       out.write("\t\t\t<br/>\n");
-      out.write("                        <a href=\"#\"><p class=\"small\">Forgot your password?</p></a>\n");
-      out.write("                        <label for=\"new user\">new user?</label><a href=\"http://localhost:8084/CardiacCountermeasure/patient_reg.jsp\"> <button type=\"button\">SignUp </button></a>\n");
+      out.write("                        <a href=\"forgotpassword.jsp\"><p class=\"small\">Forgot your password?</p></a>\n");
+      out.write("                        <label for=\"new user\">new user?</label><a href=\"Whoru.jsp\"> <button type=\"button\">SignUp </button></a>\n");
       out.write("                          </div>\n");
       out.write("        </div>\n");
       out.write("                \n");

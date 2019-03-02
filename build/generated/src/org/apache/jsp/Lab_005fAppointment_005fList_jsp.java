@@ -3,6 +3,10 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import model.Labtest;
+import model.PatienttestDetail;
+import model.LabAppointment;
+import java.util.ArrayList;
 
 public final class Lab_005fAppointment_005fList_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -30,7 +34,7 @@ public final class Lab_005fAppointment_005fList_jsp extends org.apache.jasper.ru
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -41,6 +45,9 @@ public final class Lab_005fAppointment_005fList_jsp extends org.apache.jasper.ru
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -64,7 +71,7 @@ public final class Lab_005fAppointment_005fList_jsp extends org.apache.jasper.ru
       out.write("    <!-- CSS\n");
       out.write("    ================================================== -->       \n");
       out.write("    <!-- Bootstrap css file-->\n");
-      out.write("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n");
+      out.write("    <link href=\"css/bootstrap.min.jui.css\" rel=\"stylesheet\">\n");
       out.write("    <!-- Font awesome css file-->\n");
       out.write("    <link href=\"css/font-awesome.min.css\" rel=\"stylesheet\">       \n");
       out.write("    <!-- Default Theme css file -->\n");
@@ -179,77 +186,117 @@ public final class Lab_005fAppointment_005fList_jsp extends org.apache.jasper.ru
       out.write("      \n");
       out.write("                        <!-- Start sidebar widget -->\n");
       out.write("                   \n");
-      out.write("                              <h3></h3> \n");
+      out.write("                              <h3></h3><span style=\"color: green;\">\n");
+      out.write("                                ");
+ if (request.getAttribute("msg") != null) {
+      out.write("\n");
+      out.write("                                 ");
+      out.print(request.getAttribute("msg"));
+      out.write("\n");
+      out.write("                                 ");
+ }
+      out.write("\n");
       out.write("                             <table class=\"table table-hover\">\n");
       out.write("                                <thead>\n");
       out.write("                                  <tr>\n");
       out.write("                                    <th>No</th>\n");
       out.write("                                    <th>Patient's Name</th>\n");
+      out.write("                                    <th>Ordered Tests</th>\n");
       out.write("                                    <th>View Patient's Profile</th>\n");
       out.write("                                    <th>Approve Appointment</th>\n");
       out.write("                                    <th>Reject Appointment</th>\n");
-      out.write("                                    <th>Collect Sample from home</th>\n");
+      out.write("                                    \n");
       out.write("                                  </tr>\n");
       out.write("                                </thead>\n");
       out.write("                                <tbody>\n");
+      out.write("                                    \n");
+      out.write("                 ");
+ if (request.getAttribute("la") != null) {
+                            ArrayList<LabAppointment> la = (ArrayList<LabAppointment>) request.getAttribute("la");
+                             ArrayList<ArrayList<PatienttestDetail>> testarray = (ArrayList<ArrayList<PatienttestDetail>>) request.getAttribute("ptest");
+                            int loop = 1;
+                            
+                             for(int i = 0; i <la.size();  i++)
+                             {
+
+                                 ArrayList<PatienttestDetail> test1 = testarray.get(i);
+                                    LabAppointment l =la.get(i);
+                                   
+                             
+                             
+                             for (LabAppointment dp1 : la) {
+                    
+      out.write(" \n");
       out.write("                                  <tr>\n");
-      out.write("                                    <th scope=\"row\">1</th>\n");
-      out.write("                                    <td>Jui Desai</td>\n");
-      out.write("                                    <td><a href=\"#\" class=\"author-morepost\">View Profile</a></td>\n");
-      out.write("                                    <td><a class=\"reply-btn\" href=\"#\">Approve</a></td>\n");
-      out.write("                                    <td><a class=\"reply-btn\" href=\"#\"> Reject</a></td>\n");
-      out.write("                                    <td> <div class=\"checkbox\">\n");
-      out.write("                                      <label>\n");
-      out.write("                                          <input type=\"checkbox\" value=\"\">\n");
-      out.write("                                      </label>\n");
-      out.write("                                   </div></td>                             \n");
+      out.write("                                    <th scope=\"row\">");
+      out.print(loop);
+      out.write("</th>\n");
+      out.write("                                    <td>");
+      out.print(dp1.getPId().getPFirstname() + " " + dp1.getPId().getPLastname());
+      out.write("</td>\n");
+      out.write("                                    <td><ul class=\"footer-service\">\n");
+      out.write("                                ");
+
+                                double fees=0.0;
+                                    for (PatienttestDetail ptd1 : testarray.get(i)) {
+                                        Labtest ltt = ptd1.getLtId();
+                                        fees= fees + ltt.getTestFees();
+                                
+      out.write("\n");
+      out.write("                                <li><span class=\"fa fa-check\"></span> ");
+      out.print(ltt.getTId().getTestName());
+      out.write("</li>\n");
+      out.write("                                 <!--<td>");
+      out.print(fees );
+      out.write("</td>-->\n");
+      out.write("                                    ");
+ }
+      out.write("\n");
+      out.write("                            </ul></td>\n");
+      out.write("                                    \n");
+      out.write("                                    <td> <a href=\"view_pat_profile_byLab?pid=");
+      out.print( dp1.getPId().getPId());
+      out.write("\" > View Profile</a></td>\n");
+      out.write("                                    <td>\n");
+      out.write("                            <form  action=\"lab_view_appointment\">\n");
+      out.write("                                <input type=\"date\" name=\"apdate\" required placeholder=\"Date\" style=\"height: 30px;margin: 5px;\" />\n");
+      out.write("                                <input type=\"time\" required name=\"aptime\" style=\"height: 30px;margin: 5px;\" placeholder=\"Time\" />\n");
+      out.write("                                <input type=\"hidden\" name=\"appoid\" value=\"");
+      out.print(dp1.getLaId());
+      out.write("\" />\n");
+      out.write("                                <input type=\"hidden\" name=\"status\" value=\"approve\"  />\n");
+      out.write("                                <input type=\"submit\" value=\"APPROVE\" class=\"reply-btn\" style=\"float: none;background-color: rgb(60, 91, 41);\" />\n");
+      out.write("                            </form>\n");
+      out.write("                        </td>\n");
+      out.write("                                    <td>\n");
+      out.write("                            <form action=\"lab_view_appointment\" >\n");
+      out.write("                                <!--<input type=\"date\" name=\"apdate\" placeholder=\"Date\" /><input type=\"time\" name=\"apdate\" placeholder=\"Time\" />-->\n");
+      out.write("                                <input type=\"hidden\" name=\"appoid\" value=\"");
+      out.print(dp1.getLaId());
+      out.write("\" />\n");
+      out.write("                                <input type=\"hidden\" name=\"status\" value=\"reject\" />\n");
+      out.write("                                <input type=\"submit\" value=\"REJECT\" class=\"reply-btn\" style=\"background-color: #CE522C;\" />\n");
+      out.write("                            </form>\n");
+      out.write("                            <!--<a class=\"reply-btn\" href=\"viewapprovedappo?status=r&appoid=\" style=\"background-color: #CE522C;\"> Reject </a>-->\n");
+      out.write("                        </td>\n");
+      out.write("                                                                \n");
       out.write("                                  </tr>\n");
-      out.write("                                  <tr>\n");
-      out.write("                                    <th scope=\"row\">2</th>\n");
-      out.write("                                    <td>Rishabh Shah</td>\n");
-      out.write("                                    <td><a href=\"#\" class=\"author-morepost\">View Profile</a></td>\n");
-      out.write("                                    <td><a class=\"reply-btn\" href=\"#\">Approve</a></td>\n");
-      out.write("                                    <td><a class=\"reply-btn\" href=\"#\"> Reject</a></td>\n");
-      out.write("                                    <td> <div class=\"checkbox\">\n");
-      out.write("                                      <label>\n");
-      out.write("                                          <input type=\"checkbox\" value=\"\">\n");
-      out.write("                                      </label>\n");
-      out.write("                                   </div></td>\n");
-      out.write("                                  </tr>\n");
-      out.write("                                  <tr>\n");
-      out.write("                                    <th scope=\"row\">3</th>\n");
-      out.write("                                    <td>Shruti Shah</td>\n");
-      out.write("                                    <td><a href=\"#\" class=\"author-morepost\">View Profile</a></td>\n");
-      out.write("                                    <td><a class=\"reply-btn\" href=\"#\">Approve</a></td>\n");
-      out.write("                                    <td><a class=\"reply-btn\" href=\"#\"> Reject</a></td>\n");
-      out.write("                                    <td> <div class=\"checkbox\">\n");
-      out.write("                                      <label>\n");
-      out.write("                                          <input type=\"checkbox\" value=\"\">\n");
-      out.write("                                      </label>\n");
-      out.write("                                   </div></td>\n");
-      out.write("                                  </tr>\n");
-      out.write("                                   <tr>\n");
-      out.write("                                    <th scope=\"row\">4</th>\n");
-      out.write("                                    <td>Deep Patel</td>\n");
-      out.write("                                    <td><a href=\"#\" class=\"author-morepost\">View Profile</a></td>\n");
-      out.write("                                    <td><a class=\"reply-btn\" href=\"#\">Approve</a></td>\n");
-      out.write("                                    <td><a class=\"reply-btn\" href=\"#\"> Reject</a></td>\n");
-      out.write("                                    <td> <div class=\"checkbox\">\n");
-      out.write("                                      <label>\n");
-      out.write("                                          <input type=\"checkbox\" value=\"\">\n");
-      out.write("                                      </label>\n");
-      out.write("                                   </div></td>\n");
-      out.write("                                   </tr>\n");
-      out.write("                                   <th scope=\"row\">5</th>\n");
-      out.write("                                    <td>Zeel Patel</td>\n");
-      out.write("                                    <td><a href=\"#\" class=\"author-morepost\">View Profile</a></td>\n");
-      out.write("                                    <td><a class=\"reply-btn\" href=\"#\">Approve</a></td>\n");
-      out.write("                                    <td><a class=\"reply-btn\" href=\"#\">Reject</a></td>\n");
-      out.write("                                    <td> <div class=\"checkbox\">\n");
-      out.write("                                      <label>\n");
-      out.write("                                          <input type=\"checkbox\" value=\"\">\n");
-      out.write("                                      </label>\n");
-      out.write("                                   </div></td>\n");
+      out.write("                                  \n");
+      out.write("                                   ");
+ loop++;
+                        } }
+                    } else { 
+      out.write("\n");
+      out.write("                    <tr>\n");
+      out.write("                        <td colspan=\"5\"><h3 style=\"color: #FF9800\">No more appointment.!</h3></td>\n");
+      out.write("                    </tr>\n");
+      out.write("                    ");
+ }
+      out.write("\n");
+      out.write("\n");
+      out.write("                                 \n");
+      out.write("\n");
+      out.write("                                   \n");
       out.write("                                </tbody>\n");
       out.write("                              </table>\n");
       out.write("\n");

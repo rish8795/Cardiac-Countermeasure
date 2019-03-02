@@ -4,6 +4,8 @@
     Author     : admin
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.State"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +15,46 @@
     ================================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <script type="text/javascript">
+            function GetCityNames()
+            {
+                var sid = document.getElementById("idstate").value;
+                var url = "GetCityServ?state="+sid;
+                var xmlReq = new XMLHttpRequest();
+                xmlReq.onreadystatechange = function ()
+                {
+                    if(xmlReq.status==200)
+                    {
+                        document.getElementById("idcity").innerHTML = xmlReq.responseText;
+                    }
+                    
+                }
+                xmlReq.open("get",url,true);
+               
+                xmlReq.send();
+                //alert(sid);
+            }
+        </script>
+     <script type="text/javascript">
+            
+           function myFunction() {
+    var pass1 = document.getElementById("pass1").value;
+    var pass2 = document.getElementById("pass2").value;
+    var ok = true;
+    if (pass1 != pass2) {
+        alert("Passwords Do not match");
+        document.getElementById("pass1").style.borderColor = "#E34234";
+        document.getElementById("pass2").style.borderColor = "#E34234";
+        ok = false;
+    }
+    else {
+//        alert("Passwords Match!!!");
+    }
+    return ok;
+}
+        </script>
+
+
      <title>CARDIAC COUNTERMEASURE :Laboratory Registration</title>
 
     <!-- Mobile Specific Metas
@@ -107,20 +149,39 @@
                 <div class="line"></div>
               </div>
               <p>Fields mark with '*' are compulsory </p>
-              <form class="submitphoto_form" method="post" action="labreg">
+              <form class="submitphoto_form" method="post" enctype="multipart/form-data" action="labreg" onsubmit="return myFunction()">
                   Laboratory Name: <input required type="text" class="wp-form-control wpcf7-text" placeholder="laboratory name" name="lab_name"></br>
                   WEBSITE: <input required type="text" class="wp-form-control wpcf7-text" placeholder="abc.com/abc.co.in" name="website"></br>
                 
                   Email id: <input required type="mail" class="wp-form-control wpcf7-email" placeholder="Email address" name="email_id"></br>
-                  Contact number: <input required type="text" class="wp-form-control wpcf7-text" placeholder="Contact Number" name="cont_num"></br>
+                  Contact number: <input required type="text" class="wp-form-control wpcf7-text" placeholder="Contact Number" min="10" maxlength="10" pattern="^[1-9]{1}[0-9]{9}$" title="First digit should not be 0 " title="Minimum and Maximum digits are 10" name="cont_num"></br>
                   Address line1:  <input required type="text" class="wp-form-control wpcf7-text"  placeholder="street" name="line1"></br>
                   Address line2:  <input required type="text" class="wp-form-control wpcf7-text"  placeholder="nearby" name="line2"></br>
-                  State:  <input required type="text" class="wp-form-control wpcf7-text" placeholder="State" name="state"></br>
-                  City: <input required type="text" class="wp-form-control wpcf7-text" placeholder="city" name="city"></br>
-                  Pincode: <input required type="text" class="wp-form-control wpcf7-text" placeholder="pincode" name="pincode"></br>
+                   State:  <select type="text" class="wp-form-control wpcf7-text"  name="state" id="idstate" onchange="GetCityNames();">
+                    
+                     <option>Select</option>
+            <% 
+                if(request.getAttribute("sli") != null)
+                {
+                    ArrayList<State> sli = (ArrayList<State>)request.getAttribute("sli");
+                    for(int i=0; i<sli.size();i++)
+                    {
+                        State sm = sli.get(i);
+                        %>
+                        <option value="<%=sm.getSId()%>">
+                            <%=sm.getStateName()%>
+                        </option>
+                        <%
+                    }
+                }
+            %>
+                </select></br>
+                City: <select type="text" id="idcity" class="wp-form-control wpcf7-text" name="city"></select></br>
+                Upload Image of certificate: <input required type="file" multiple="" class="wp-form-control" placeholder="upload image of certificate" name="image"></br>
+                Pincode: <input required type="text" class="wp-form-control wpcf7-text" placeholder="pincode" name="pincode"></br>
                   User name: <input required type="text" class="wp-form-control wpcf7-text" placeholder="user name" name="user_id"></br>
-                  Password: <input required type="password" class="wp-form-control wpcf7-text" placeholder="Password" name="password"></br>
-                  Confirm Password <input required type="password" class="wp-form-control wpcf7-text" placeholder="Confirm Password" name="confirm"></br>
+                  Password: <input required type="password" id="pass1" class="wp-form-control wpcf7-text" placeholder="Password" name="password"></br>
+                  Confirm Password <input required type="password" id="pass2" class="wp-form-control wpcf7-text" placeholder="Confirm Password" name="confirm"></br>
                <button class="wpcf7-submit button--itzel" type="submit"><i class="button__icon fa fa-envelope"></i><span>REGISTER</span></button>                
               </form>
             </div>

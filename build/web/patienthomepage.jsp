@@ -1,10 +1,8 @@
+<%@page import="model.Doctor"%>
+<%@page import="model.Patient"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--=============================================== 
-    Template Design By rishabh shah and jui desai.
-    Author URI : http:///
-    ====================================================-->
 
     <!-- Basic Page Needs
     ================================================== -->
@@ -78,6 +76,27 @@
         margin-left: 160px;  
         }
     </style>
+     <script type="text/javascript">
+            function GetDocNames()
+            {
+                var sid = document.getElementById("idstate").value;
+                var url = "GetCityServ?state="+sid;
+                var xmlReq = new XMLHttpRequest();
+                xmlReq.onreadystatechange = function ()
+                {
+                    if(xmlReq.status==200)
+                    {
+                        document.getElementById("idcity").innerHTML = xmlReq.responseText;
+                    }
+                    
+                }
+                xmlReq.open("get",url,true);
+               
+                xmlReq.send();
+                //alert(sid);
+            }
+        </script>
+    
   </head>
   <body>  
     
@@ -90,52 +109,44 @@
     <!-- SCROLL TOP BUTTON -->
     <a class="scrollToTop" href="#"><i class="fa fa-heartbeat"></i></a>
     <!-- END SCROLL TOP BUTTON -->
+    
+    
 
-    <!--=========== BEGIN HEADER SECTION ================-->
-    <header id="header">
-      <!-- BEGIN MENU -->
-      <div class="menu_area">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">  
-          <div class="container">
-            <div class="navbar-header">
-              <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <!-- LOGO -->              
-              <!-- TEXT BASED LOGO -->
-              <a class="navbar-brand" href="patienthomepage.jsp"><i class="fa fa-heartbeat"></i><span style="font-family: cursive">CARDIAC COUNTERMEASURE</span></a>              
-              <!-- IMG BASED LOGO  -->
-              <!--  <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>   -->                    
+    <%@include file="header_patient.jsp" %> 
+
+     <!--=========== BEGIN SLIDER SECTION ================-->
+    
+    <section id="blogArchive">      
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="blog-breadcrumbs-area">
+            <div class="container">
+              <div class="blog-breadcrumbs-left">
+         <%
+         HttpSession hs = request.getSession();
+         if(hs.getAttribute("patient")!=null){
+             Patient p =(Patient)hs.getAttribute("patient");
+               String fname=p.getPFirstname(); 
+               String lname = p.getPLastname();
+         %>
+         <h2>Welcome <%=fname + " " +lname%></h2>
+         <%}%>
+              </div>
+              <div class="blog-breadcrumbs-right">
+                <ol class="breadcrumb">
+                  <li>You</li>
+                  <li><a href="#">Home</a></li>               
+                </ol>
+              </div>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-                  <li class="active"><a href="patienthomepage.jsp">Home</a></li>
-                
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="fa fa-angle-down"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                      <li><a href="patient_heart_attack_services.jsp">Heart-attack detection</a></li>
-                    <li><a href="medical-research.html">Consult Cariac</a></li>
-                    <li><a href="blood-bank.html">Laboratory test</a></li>
-                  </ul>
-                </li>
-                <li><a href="Blogs.jsp">Blog</a></li>
-                <li><a href="features.html">FAQs</a></li>
-                <li><a href="ContactUs.jsp">Contact Us</a></li>
-                <li><a href="patient_myprofile.jsp">My Profile</a></li>
-              </ul>           
-            </div><!--/.nav-collapse -->
-          </div>     
-        </nav>  
-      </div>
-      <!-- END MENU -->    
-    </header>
-    <!--=========== END HEADER SECTION ================-->   
+          </div>
+        </div>        
+      </div>      
+    </section>
+ 
+    <!--=========== END SLIDER SECTION ================-->
 
+    
     <!--=========== BEGIN SLIDER SECTION ================-->
     <section id="sliderArea">
       <!-- Start slider wrapper -->      
@@ -148,9 +159,7 @@
           <div class="slider-text">
             <h2> <strong></strong> we provide asylum at your doorsteps</h2>
             <p><strong>Cardiac Countermeasure</strong> One thing you need for your whole cardiac problem</p>
-            <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Read More</span></a>                
-            </div>
+            
           </div>
         </div>
         <!-- End First slide -->
@@ -158,7 +167,12 @@
         <!-- Start 2nd slide -->
         <div class="top-slide-inner">
           <div class="slider-img">
-              <img src="images/images/images (11).jpg" alt="">
+              <img src="images/Medical-Touchscreen-Technology-1.jpg" alt="">
+          </div>
+            <div class="slider-text">
+            <h2> <strong> Know Your Heart-attack chances in just one touch </strong></h2>
+            
+            
           </div>
           
         </div>
@@ -172,7 +186,7 @@
           <div class="slider-text">
             <h2>A <strong></strong> Best and quick laboratory services for various cardiac tests</h2>
                         <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Read More</span></a>                
+             
             </div>
           </div>
         </div>
@@ -186,9 +200,7 @@
           <div class="slider-text">
             <h2><strong>Best Cardiac assistance</strong> For your Cardiovascular problems</h2>
             <p><strong></strong> You can know which cardiac is available and quickly consult an cardiac in emergency</p>
-            <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Read More</span></a>                
-            </div>
+            
           </div>
         </div>
         <!-- End Fourth slide -->
@@ -200,65 +212,78 @@
     </section>
     <!--=========== END SLIDER SECTION ================-->
 
-    <!--=========== BEGIN Top Feature SECTION ================-->
-    <section>
+    <!--=========== BEGIN Appointment SECTION ================-->
+       <section>
       <div class="row">
-    	<div class="col-sm-6 main-form">
+          <div class="col-sm-6" style="border-style: solid;border: #CE522C;padding-top: 42px;border-right-style: inset;">
             <!--<div style="margin-left: 15px; margin-right: 15px; border-color: "></div>-->
-        	<h2 class="h24">make an 
-			<span>appointment</span></h2>
-    
-            <div class="for49">
-            <form>
-            <input type="text" class="all-in" placeholder="Your name*" id="apname" />
-            <input type="text" class="all-in"  placeholder="Phone Number*" id="aptel" />
-            <input type="text" class="all-in"  placeholder="Email Address*" id="apemail" />
-            </form>
+        	<div class="how-works">
+                <ul class="nav nav-tabs" id="myTab">
+                  <li class="active"><a href="#experiment" data-toggle="tab">Step-1</a></li>
+                  <li><a href="#monitor" data-toggle="tab">Step-2</a></li>
+                  <li><a href="#clean" data-toggle="tab">Step-3</a></li>
+                  <li><a href="#fast" data-toggle="tab">Step-4</a></li>  
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div class="tab-pane fade in active" id="experiment">
+                      <p style="font-size: large;color: #CE522C;font-weight: 600;">Answer the qustionnaire to estimate your risk of having a heart-attack or dying from coronary heart disease over the next 10 years.</p>
+                      <img class="img-center" src="images/finalpic1.png" alt="img">
+                  </div>
+                  <div class="tab-pane fade " id="monitor">
+                    <p style="font-size: large;color: #CE522C;font-weight: 600;">Discover your chances of occurring heart attack through system generated report.</p>
+                    <img class="img-center" src="images/meter.png" alt="img">
+                  </div>
+                  <div class="tab-pane fade " id="clean">
+                    <p style="font-size: large;color: #CE522C;font-weight: 600;">Learn if your pattern of risk factors puts you in a high-risk category and discover how small improvements in different    risk factors may lessen your chances of cardiac arrest.</p>
+                    <img class="img-center" src="images/modify.png" alt="img">
+                  </div>
+                  <div class="tab-pane fade " id="fast">
+                    <p style="font-size: large;color: #CE522C;font-weight: 600";>Know Laboratory test to be conducted according to the chances depicted in system generated report.</p>
+                    <img class="img-center" src="images/testconduct.png" alt="img">
+                  </div>
+              </div>
+              </div>
             </div>
-            <div class="for49">
-            <!--<form>
-            <input type="text" class="all-in"  placeholder="Appoinment Date*" id="apdate" />
-            </form>-->
-            <fieldset>
-                <div class="form-group">
-                    <div class="input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                    <form>
-                        <input type="text" class="all-in" placeholder="Appointment date*" value="" id="apdate">
-                    </form>    
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-th" style="margin-left: 8px; margin-top: 6px;"></span></span>
+        <!--/.main-page-form-->
+      
+        <div class="col-sm-6" style="padding-top: 100px;">
+        	<div class="whyChoose-right" style="margin-left: 100px;">
+                  <div class="media">
+                    <div class="media-left">
+                      <a href="#" class="media-icon">
+                        <span class="fa fa-info"></span>
+                      </a>
                     </div>
-                    <form>
-                    <input type="hidden" id="dtp_input2" value="" />
-                    </form>
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="ha_calculator_goal.jsp">More information about the calculator goals.</a></h4>
+                    </div>
+                  </div>
+                  <div class="media">
+                    <div class="media-left">
+                      <a href="#" class="media-icon">
+                        <span class="fa fa-question"></span>
+                      </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="ha_needto_know.jsp">What you need to know to use this calculator</a></h4>
+                    </div> 
+                  </div>
+                  <div class="media">
+                    <div class="media-left">
+                      <a href="#" class="media-icon">
+                        <span class="fa fa-play"></span>
+                      </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="calculatefactorrisk">Begin your test here</a></h4>
+                    </div>
+                  </div>
                 </div>
-            </fieldset>
-            <div class="tracker">
-            <form>
-            <textarea placeholder="Comment*" id="apcomment"></textarea>
-            </form>
-            <button class="bt" type="button" onclick="sendContact();">go</button>
-            </div><!-- ./tracker -->
-            <div class="success"></div>
-			<div id="ferror"></div>
-            </div>
-        </div><!--/.main-page-form-->
-   		<div class="col-sm-6 working-times">
-        	<h2 class="h24">Our 
-			<span>working times</span></h2>
-            <div class="details">
-                <p> Monday -friday : 
-                <span>8 AM-17 pm</span></p>
-                <p> Saturday - Sunday : 
-                <span>9 AM-15 pm</span></p>
-            </div><!-- /.details -->
-            <div class="discription">
-            	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has industry's standard dummy text ever since the.</p>
-                <a href="doctor-timetable.html" class="put"> Dr.Timetable</a>
-            </div><!-- /.discription -->
         </div><!--/.working-times--> 
     </div><!-- /.row -->
-  </div>
     </section>
+
     <!--=========== END Top Feature SECTION ================-->
 
 
@@ -342,14 +367,7 @@
                     </div>
                   </li> 
                   <li>
-                    <div class="single-testimonial">
-                      <div class="testimonial-img">
-                        <img src="images/patients-2.jpg" alt="img">
-                      </div>
-                      <div class="testimonial-cotent">
-                        <p class="testimonial-parg">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.There are many variations of passages of Lorem Ipsum available.</p>
-                      </div>
-                    </div>
+                    
                   </li>                 
                 </ul>
               </div>
@@ -361,195 +379,10 @@
     <!--=========== End Testimonial SECTION ================-->
 
     <!--=========== BEGAIN Home Blog SECTION ================-->
-    <section id="homeBLog">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="homBlog-area">
-             <!-- Start Service Title -->
-              <div class="section-heading">
-                <h2>News From Blog</h2>
-                <div class="line"></div>
-              </div> 
-              <!-- Start Home Blog Content -->
-              <div class="homeBlog-content">
-                <div class="row">
-                  <!-- Start Single Blog -->
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="single-Blog">
-                      <div class="single-blog-left">
-                        <ul class="blog-comments-box">
-                          <li>May <h2>10</h2>2015</li>
-                          <li><span class="fa fa-eye"></span>1523</li>
-                          <li><a href="#"><span class="fa fa-comments"></span>5</a></li>
-                        </ul>
-                      </div>
-                      <div class="single-blog-right">
-                        <div class="blog-img">
-                          <figure class="blog-figure">
-                           <a href="#"><img src="images/choose-us-img3.jpg" alt="img"></a>
-                            <span class="image-effect"></span>
-                          </figure>
-                        </div>
-                        <div class="blog-author">
-                          <ul>
-                            <li>By <a href="#">Dr. Smith</a></li>
-                            <li>In <a href="#">caridac</a></li>
-                          </ul>
-                        </div>
-                        <div class="blog-content">
-                          <h2>Latest Trend Of Medical Dental Department</h2>
-                          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                          <div class="readmore_area">
-                            <a href="#" data-hover="Read More"><span>Read More</span></a>                
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                   <!-- Start Single Blog -->
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="single-Blog">
-                      <div class="single-blog-left">
-                        <ul class="blog-comments-box">
-                          <li>May <h2>10</h2>2015</li>
-                          <li><span class="fa fa-eye"></span>1523</li>
-                          <li><a href="#"><span class="fa fa-comments"></span>5</a></li>
-                        </ul>
-                      </div>
-                      <div class="single-blog-right">
-                         <div class="blog-img">
-                          <figure class="blog-figure">
-                           <a href="#"><img src="images/choose-us-img3.jpg" alt="img"></a>
-                            <span class="image-effect"></span>
-                          </figure>
-                        </div>
-                        <div class="blog-author">
-                          <ul>
-                            <li>By <a href="#">Dr. Smith</a></li>
-                            <li>In <a href="#">Dental</a></li>
-                          </ul>
-                        </div>
-                        <div class="blog-content">
-                          <h2>Latest Trend Of Medical Dental Department</h2>
-                          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                          <div class="readmore_area">
-                            <a href="#" data-hover="Read More"><span>Read More</span></a>                
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                   <!-- Start Single Blog -->
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="single-Blog">
-                      <div class="single-blog-left">
-                        <ul class="blog-comments-box">
-                          <li>May <h2>10</h2>2015</li>
-                          <li><span class="fa fa-eye"></span>1523</li>
-                          <li><a href="#"><span class="fa fa-comments"></span>5</a></li>
-                        </ul>
-                      </div>
-                      <div class="single-blog-right">
-                         <div class="blog-img">
-                          <figure class="blog-figure">
-                           <a href="#"><img src="images/choose-us-img3.jpg" alt="img"></a>
-                            <span class="image-effect"></span>
-                          </figure>
-                        </div>
-                        <div class="blog-author">
-                          <ul>
-                            <li>By <a href="#">Dr. Smith</a></li>
-                            <li>In <a href="#">Dental</a></li>
-                          </ul>
-                        </div>
-                        <div class="blog-content">
-                          <h2>Latest Trend Of Medical Dental Department</h2>
-                          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                          <div class="readmore_area">
-                            <a href="#" data-hover="Read More"><span>Read More</span></a>                
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>             
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
     <!--=========== End Home Blog SECTION ================-->
 
-     <footer id="footer">
-      <!-- Start Footer Top -->
-      <div class="footer-top">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <div class="single-footer-widget">
-                <div class="section-heading">
-                <h2>About Us</h2>
-                <div class="line"></div>
-              </div>           
-              <p> 'Cardiac Countermeasure' is a link between the Artificial Intelligence Cardiac System and the needy patient. It provides the person with a detailed list of Factors and functions related to heart-attack and after the user provides the correct information then System will generate the chances of the person of having heart-attack. Not only that after the system based report is generated it also provides the further asylum to the user for consulting laboratory as well as cardiologist.</p>
-              </div>
-            </div>
-            <div class="col-lg-5 col-md-5 col-sm-5">
-              
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <div class="single-footer-widget">
-                <div class="col-lg-3 col-md-3 col-sm-3">
-              <div class="single-footer-widget">
-                <div class="section-heading">
-                <h2>Contact Info</h2>
-                <div class="line"></div>
-              </div>
-              <p>Feel free to contact us at any time for suggestions or complaints</p>
-              <address class="contact-info">
-                <p><span class="fa fa-home"></span>305 Satyam mall,
-                jodhpur,Ahmedabad</p>
-                <p><span class="fa fa-phone"></span>+919974911232</p>
-                <p><span class="fa fa-envelope"></span>info@Cardiaccountermeasure.com</p>
-              </address>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Start Footer Middle -->
-      <div class="footer-middle">
-        <div class="container">
-          <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="footer-copyright">
-              <p>&copy; Copyright 2015 <a href="index.html">R&J</a></p>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="footer-social">              
-                <a href="#"><span class="fa fa-facebook"></span></a>
-                <a href="#"><span class="fa fa-twitter"></span></a>
-                <a href="#"><span class="fa fa-google-plus"></span></a>
-                <a href="#"><span class="fa fa-linkedin"></span></a>     
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-      <!-- Start Footer Bottom -->
-      <div class="footer-bottom">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <p>Design & Developed By <a rel="nofollow" href="https://www.facebook.com/rishabh.shah.18"> R&J</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%@include file="footer.jsp" %>
     <!--=========== End Footer SECTION ================-->
     <!-- jQuery Library  -->
     <script src="js/jquery.js"></script>    

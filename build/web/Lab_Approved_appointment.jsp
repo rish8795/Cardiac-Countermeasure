@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="model.LabAppointment"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -61,50 +63,7 @@
     <!-- END SCROLL TOP BUTTON -->
 
     <!--=========== BEGIN HEADER SECTION ================-->
-   <header id="header">
-      <!-- BEGIN MENU -->
-      <div class="menu_area">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">  
-          <div class="container">
-            <div class="navbar-header">
-              <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <!-- LOGO -->              
-              <!-- TEXT BASED LOGO -->
-              <a class="navbar-brand" href="Labhomepage.jsp"><i class="fa fa-heartbeat"></i><span style="font-family: cursive">CARDIAC COUNTERMEASURE</span></a>              
-              <!-- IMG BASED LOGO  -->
-              <!--  <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>   -->                    
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-                  <li class="active"><a href="Labhomepage.jsp">Home</a></li>
-                
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="fa fa-angle-down"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                      <li><a href="Lab_Appointment_List.jsp">List of Appointment</a></li>
-                      <li><a href="Lab_Approved_appointment.jsp">Approved Appointment</a></li>
-                    <li><a href="medical-research.html">Test List</a></li>
-                     <li><a href="medical-research.html">Upload Report</a></li>
-                 </ul>
-                </li>
-                <li><a href="Blogs.jsp">BLOGS</a></li>
-                 
-                <li><a href="features.html">FAQs</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="Lab_My_profile.jsp">My Profile</a></li>
-              </ul>           
-            </div><!--/.nav-collapse -->
-          </div>     
-        </nav>  
-      </div>
-      <!-- END MENU -->    
-    </header>
+    <%@include file="header_lab.jsp" %>
     <!--=========== END HEADER SECTION ================-->
     
     <!--=========== START BLOG SECTION ================-->       
@@ -131,65 +90,68 @@
       
                         <!-- Start sidebar widget -->
                    
-                              <h3></h3> 
+                             <h3></h3> 
+                         <span style="color: green;">
+                         <% if (request.getAttribute("msg") != null) {%>
+                         <%=request.getAttribute("msg")%>
+                         <% }%>
+                         </span>
                              <table class="table table-hover">
                                 <thead>
                                   <tr>
                                     <th>No</th>
                                     <th>Patient's Name</th>
                                     <th>View Patient's Profile</th>
-                                    <th>Collect Sample from home</th>
+                                    <th>Update Appointment</th>
+                                    <th> Cancel Appointment </th>
                                   </tr>
                                 </thead>
                                 <tbody>
+                                    
+                                    
+                                      <% if (request.getAttribute("da") != null) {
+                                         ArrayList<LabAppointment> dp = (ArrayList<LabAppointment>) request.getAttribute("da");
+                                         int loop = 1;
+                                         for (LabAppointment dp1 : dp) {
+
+
+                                      %> 
+                                    
+                                    
+                                    
                                   <tr>
-                                    <th scope="row">1</th>
-                                    <td>Jui Desai</td>
-                                    <td><a href="#" class="author-morepost">View Profile</a></td>
-                                    <td> <div class="checkbox">
-                                      <label>
-                                          <input type="checkbox" value="">
-                                      </label>
-                                   </div></td>                             
+                                    <th scope="row"><%=loop%></th>
+                                    <td><%=dp1.getPId().getPFirstname() + " " + dp1.getPId().getPLastname()%></td>
+                                    <td> <a href="view_pat_profile_byLab?pid=<%= dp1.getPId().getPId()%>" class="author-morepost">View Profile</a></td>
+                       <td>
+                            <form action="lab_view_approved_appointment" >
+                                <input type="date" name="apdate" required value="<%=dp1.getDate() %>" style="height: 30px;margin: 5px;" />
+                                <input type="time" required name="aptime" style="height: 30px;margin: 5px;" value="<%=dp1.getTime() %>" />
+                                <input type="hidden" name="appoid" value="<%=dp1.getLaId() %>" />
+                                <input type="hidden" name="status" value="update" />
+                                <input type="submit" value="UPDATE" class="reply-btn" style="float: none;background-color: rgb(60, 91, 41);" />
+                            </form>  
+                                
+                     </td>
+                                       
+                         <td>
+                             <form action="doc_view_approved_appointment">
+                                <input type="submit" value="CANCEL" class="reply-btn" style="background-color: #CE522C;" />
+                                <input type="hidden" name="appoid" value="<%=dp1.getLaId() %>" />
+                                <input type="hidden" name="status" value="cancel"  />
+                             </form>
+                        </td>
+                                       
                                   </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Rishabh Shah</td>
-                                    <td><a href="#" class="author-morepost">View Profile</a></td>
-                                    <td> <div class="checkbox">
-                                      <label>
-                                          <input type="checkbox" value="">
-                                      </label>
-                                   </div></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Shruti Shah</td>
-                                    <td><a href="#" class="author-morepost">View Profile</a></td>
-                                    <td> <div class="checkbox">
-                                      <label>
-                                          <input type="checkbox" value="">
-                                      </label>
-                                   </div></td>
-                                  </tr>
-                                   <tr>
-                                    <th scope="row">4</th>
-                                    <td>Deep Patel</td>
-                                    <td><a href="#" class="author-morepost">View Profile</a></td>
-                                    <td> <div class="checkbox">
-                                      <label>
-                                          <input type="checkbox" value="">
-                                      </label>
-                                   </div></td>
-                                   </tr>
-                                   <th scope="row">5</th>
-                                    <td>Zeel Patel</td>
-                                    <td><a href="#" class="author-morepost">View Profile</a></td>
-                                    <td> <div class="checkbox">
-                                      <label>
-                                          <input type="checkbox" value="">
-                                      </label>
-                                   </div></td>
+                                 
+                                   <% loop++;
+                        }
+                    } else { %>
+                    <tr>
+                        <td colspan="5"><h3 style="color: #FF9800">No more appointment.!</h3></td>
+                    </tr>
+                    <% }%>
+
                                 </tbody>
                               </table>
 

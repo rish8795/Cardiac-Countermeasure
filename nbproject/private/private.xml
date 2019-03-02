@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>web/consult_cardiac.jsp</url>
+            <bookmark id="1">
+                <name/>
+                <line>125</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rishabh/Documents/NetBeansProjects/SamplePro/web/patienthomepage.jsp</file>
             <file>file:/C:/Users/rishabh/Documents/NetBeansProjects/SamplePro/web/home.jsp</file>
-            <file>file:/C:/Users/rishabh/Documents/NetBeansProjects/SamplePro/web/heartattack_smoker.jsp</file>
-            <file>file:/C:/Users/rishabh/Documents/NetBeansProjects/SamplePro/web/app.jsp</file>
-            <file>file:/C:/Users/rishabh/Documents/NetBeansProjects/SamplePro/web/css/custom-variation2-app.css</file>
         </group>
     </open-files>
 </project-private>

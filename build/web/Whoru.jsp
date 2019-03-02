@@ -128,7 +128,7 @@
                           <figcaption>
                             <h2>User/Patient</h2>
                             <p></p>
-                            <button onclick="return window.location='patient_reg.jsp'"> Register Here </button>             
+                            <button onclick="return window.location='GetStateServ?id=0'"> Register Here </button>             
                           </figcaption>
                         </figure>
                       </a>
@@ -145,7 +145,7 @@
                           <figcaption>
                             <h2>Laboratory</h2>
                             <p></p>
-                            <button onclick="return window.location='laboratory_reg.jsp'">Register Here</button>             
+                            <button onclick="return window.location='GetStateServ?id=1'">Register Here</button>             
                           </figcaption>
                         </figure>
                       </a>
@@ -163,7 +163,7 @@
                           <figcaption>
                             <h2>Cardiologist</h2>
                             <p></p>
-                            <button onclick="return window.location='doctor_reg.jsp'">Register Here</button>             
+                            <button onclick="return window.location='GetStateServ?id=2'">Register Here</button>             
                           </figcaption>
                         </figure>
                       </a>  
@@ -180,7 +180,7 @@
                           <figcaption>
                             <h2>Cardiac Hospitals</h2>
                             <p></p>
-                            <button onclick="return window.location='doctor_reg.jsp'">Register Here</button>             
+                            <button onclick="return window.location='GetStateServ?id=2'">Register Here</button>             
                           </figcaption>
                         </figure>
                       </a>

@@ -4,6 +4,8 @@
     Author     : Dell
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.State"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,6 +20,44 @@
     ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <script type="text/javascript">
+            function GetCityNames()
+            {
+                var sid = document.getElementById("idstate").value;
+                var url = "GetCityServ?state="+sid;
+                var xmlReq = new XMLHttpRequest();
+                xmlReq.onreadystatechange = function ()
+                {
+                    if(xmlReq.status==200)
+                    {
+                        document.getElementById("idcity").innerHTML = xmlReq.responseText;
+                    }
+                    
+                }
+                xmlReq.open("get",url,true);
+               
+                xmlReq.send();
+                //alert(sid);
+            }
+        </script>
+        <script type="text/javascript">
+            
+           function myFunction() {
+    var pass1 = document.getElementById("pass1").value;
+    var pass2 = document.getElementById("pass2").value;
+    var ok = true;
+    if (pass1 != pass2) {
+        alert("Passwords Do not match");
+        document.getElementById("pass1").style.borderColor = "#E34234";
+        document.getElementById("pass2").style.borderColor = "#E34234";
+        ok = false;
+    }
+    else {
+//        alert("Passwords Match!!!");
+    }
+    return ok;
+}
+        </script>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/icon" href="images/favicon.ico"/>
@@ -107,7 +147,7 @@
                 <div class="line"></div>
               </div>
               <p>Fields mark with '*' are compulsory </p>
-              <form method="post" class="submitphoto_form" action="patreg">
+              <form method="post" class="submitphoto_form" action="patreg" onsubmit="return myFunction()">
                   First Name: <input type="text" class="wp-form-control wpcf7-text" placeholder="First name" name="p_firstname"></br>
                   Last Name: <input type="text" class="wp-form-control wpcf7-text" placeholder="Last name" name="p_lastname"></br>
                 Gender: <select name="gender"class="wp-form-control wpcf7-text" placeholder="Gender">
@@ -117,17 +157,36 @@
                </select></br>
                Birth Date: <input type="date" class="wp-form-control wpcf7-text" placeholder="Birth Date" name="birth_date"></br>
                 Email id: <input type="mail" class="wp-form-control wpcf7-email" placeholder="Email address" name="email_id"></br>
-                Contact number: <input type="text" class="wp-form-control wpcf7-text" placeholder="Contact Number" name="contact_num"></br>
+                Contact number: <input type="text" class="wp-form-control wpcf7-text" placeholder="Contact Number" min="10" maxlength="10" pattern="^[1-9]{1}[0-9]{9}$" title="First digit should not be 0 " title="Minimum and Maximum digits are 10" name="contact_num"></br>
                 Address line1:  <input type="text" class="wp-form-control wpcf7-text"  placeholder="street" name="line1"></br>
                 Address line2:  <input type="text" class="wp-form-control wpcf7-text"  placeholder="nearby" name="line2"></br>
            
-                State:  <input type="text" class="wp-form-control wpcf7-text" placeholder="State" name="state"></br>
-                City: <input type="text" class="wp-form-control wpcf7-text" placeholder="city" name="city"></br>
+                State:  <select type="text" class="wp-form-control wpcf7-text"  name="state" id="idstate" onchange="GetCityNames();">
+                    
+                     <option>Select</option>
+            <% 
+                if(request.getAttribute("sli") != null)
+                {
+                    ArrayList<State> sli = (ArrayList<State>)request.getAttribute("sli");
+                    for(int i=0; i<sli.size();i++)
+                    {
+                        State sm = sli.get(i);
+                        %>
+                        <option value="<%=sm.getSId()%>">
+                            <%=sm.getStateName()%>
+                        </option>
+                        <%
+                    }
+                }
+            %>
+                </select></br>
+                City: <select type="text" id="idcity" class="wp-form-control wpcf7-text" name="city"></select></br>
                 Pincode: <input type="text" class="wp-form-control wpcf7-text" placeholder="pincode" name="pincode"></br>
                 userid: <input type="text" class="wp-form-control wpcf7-text" placeholder="userid" name="user_id"> </br>
-                Password: <input type="password" class="wp-form-control wpcf7-text" placeholder="Password" name="password"></br>
-                Confirm Password <input type="password" class="wp-form-control wpcf7-text" placeholder="Confirm Password" name="confirm"></br>
-               <button class="wpcf7-submit button--itzel" type="submit"><i class="button__icon fa fa-envelope"></i><span>REGISTER</span></button>                
+                Password: <input type="password" id="pass1" class="wp-form-control wpcf7-text" placeholder="Password" name="password"></br>
+                Confirm Password <input type="password" id="pass2" class="wp-form-control wpcf7-text" placeholder="Confirm Password" name="confirm"></br>
+                <!--<input type="submit" value="Submit">-->
+                <button class="wpcf7-submit button--itzel" value="submit" type="submit"><i class="button__icon fa fa-envelope"></i><span>REGISTER</span></button>                
               </form>
             </div>
           </div>

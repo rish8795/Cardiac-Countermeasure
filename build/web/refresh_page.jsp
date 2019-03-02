@@ -20,7 +20,7 @@
     <!-- Mobile Specific Metas
     ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Refresh" content="7; url=http://localhost:8084/CC/login.jsp">
+    <meta http-equiv="Refresh" content="7; url=login.jsp">
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/icon" href="images/favicon.ico"/>
@@ -52,7 +52,7 @@
     <!--
     setTimeout("location.href = 'http://www.natural-environment.com';,1500");
     redirectTime = "2000";
-        redirectURL = "http://localhost:8084/CC/login.jsp";
+        redirectURL = "login.jsp";
         function timedRedirect() 
         {
             setTimeout("location.href = redirectURL;",redirectTime);

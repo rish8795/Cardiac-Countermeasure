@@ -36,9 +36,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Login.findByRole", query = "SELECT l FROM Login l WHERE l.role = :role")})
 public class Login implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    private Collection<Lab> labCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private Collection<Doctor> doctorCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usedId")
-    private Collection<Patient> patientCollection;
     private static final long serialVersionUID = 1L;
     @Id @GeneratedValue
     @Basic(optional = false)
@@ -53,8 +53,8 @@ public class Login implements Serializable {
     @Basic(optional = false)
     @Column(name = "role")
     private String role;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
-    private Collection<Lab> labCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usedId")
+    private Collection<Patient> patientCollection;
 
     public Login() {
     }
@@ -103,12 +103,12 @@ public class Login implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Lab> getLabCollection() {
-        return labCollection;
+    public Collection<Patient> getPatientCollection() {
+        return patientCollection;
     }
 
-    public void setLabCollection(Collection<Lab> labCollection) {
-        this.labCollection = labCollection;
+    public void setPatientCollection(Collection<Patient> patientCollection) {
+        this.patientCollection = patientCollection;
     }
 
     @Override
@@ -137,21 +137,21 @@ public class Login implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Patient> getPatientCollection() {
-        return patientCollection;
-    }
-
-    public void setPatientCollection(Collection<Patient> patientCollection) {
-        this.patientCollection = patientCollection;
-    }
-
-    @XmlTransient
     public Collection<Doctor> getDoctorCollection() {
         return doctorCollection;
     }
 
     public void setDoctorCollection(Collection<Doctor> doctorCollection) {
         this.doctorCollection = doctorCollection;
+    }
+
+    @XmlTransient
+    public Collection<Lab> getLabCollection() {
+        return labCollection;
+    }
+
+    public void setLabCollection(Collection<Lab> labCollection) {
+        this.labCollection = labCollection;
     }
     
 }

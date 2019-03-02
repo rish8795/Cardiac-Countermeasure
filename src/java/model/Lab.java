@@ -7,7 +7,9 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +18,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,7 +36,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Lab.findByLabName", query = "SELECT l FROM Lab l WHERE l.labName = :labName"),
     @NamedQuery(name = "Lab.findByContactNum", query = "SELECT l FROM Lab l WHERE l.contactNum = :contactNum"),
     @NamedQuery(name = "Lab.findByWebsite", query = "SELECT l FROM Lab l WHERE l.website = :website"),
-    @NamedQuery(name = "Lab.findByStatus", query = "SELECT l FROM Lab l WHERE l.status = :status")})
+    @NamedQuery(name = "Lab.findByStatus", query = "SELECT l FROM Lab l WHERE l.status = :status"),
+    @NamedQuery(name = "Lab.findByImageName", query = "SELECT l FROM Lab l WHERE l.imageName = :imageName")})
 public class Lab implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id @GeneratedValue
@@ -51,12 +56,18 @@ public class Lab implements Serializable {
     @Basic(optional = false)
     @Column(name = "status")
     private String status;
+    @Column(name = "image_name")
+    private String imageName;
+    @OneToMany(mappedBy = "lId")
+    private Collection<LabAppointment> labAppointmentCollection;
     @JoinColumn(name = "Address_id", referencedColumnName = "Address_id")
     @ManyToOne(optional = false)
     private Addressdetails addressid;
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     @ManyToOne(optional = false)
     private Login userId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "lId")
+    private Collection<Labtest> labtestCollection;
 
     public Lab() {
     }
@@ -113,6 +124,23 @@ public class Lab implements Serializable {
         this.status = status;
     }
 
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    @XmlTransient
+    public Collection<LabAppointment> getLabAppointmentCollection() {
+        return labAppointmentCollection;
+    }
+
+    public void setLabAppointmentCollection(Collection<LabAppointment> labAppointmentCollection) {
+        this.labAppointmentCollection = labAppointmentCollection;
+    }
+
     public Addressdetails getAddressid() {
         return addressid;
     }
@@ -127,6 +155,15 @@ public class Lab implements Serializable {
 
     public void setUserId(Login userId) {
         this.userId = userId;
+    }
+
+    @XmlTransient
+    public Collection<Labtest> getLabtestCollection() {
+        return labtestCollection;
+    }
+
+    public void setLabtestCollection(Collection<Labtest> labtestCollection) {
+        this.labtestCollection = labtestCollection;
     }
 
     @Override

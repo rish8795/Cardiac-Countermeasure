@@ -11,6 +11,11 @@ public final class patient_005fheart_005fattack_005fservices_jsp extends org.apa
 
   private static java.util.List<String> _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/header_patient.jsp");
+  }
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
@@ -76,7 +81,7 @@ public final class patient_005fheart_005fattack_005fservices_jsp extends org.apa
       out.write("    <link href=\"css/slick.css\" rel=\"stylesheet\"> \n");
       out.write("\n");
       out.write("    <!-- Main structure css file -->\n");
-      out.write("    <link href=\"style.css\" rel=\"stylesheet\">\n");
+      out.write("    <link href=\"style_jui.css\" rel=\"stylesheet\">\n");
       out.write("   \n");
       out.write("    <!-- Google fonts -->\n");
       out.write("    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>  \n");
@@ -102,6 +107,8 @@ public final class patient_005fheart_005fattack_005fservices_jsp extends org.apa
       out.write("    <!-- END SCROLL TOP BUTTON -->\n");
       out.write("\n");
       out.write("    <!--=========== BEGIN HEADER SECTION ================-->\n");
+      out.write("    ");
+      out.write(" <!--=========== BEGIN HEADER SECTION ================-->\n");
       out.write("    <header id=\"header\">\n");
       out.write("      <!-- BEGIN MENU -->\n");
       out.write("      <div class=\"menu_area\">\n");
@@ -117,26 +124,34 @@ public final class patient_005fheart_005fattack_005fservices_jsp extends org.apa
       out.write("              </button>\n");
       out.write("              <!-- LOGO -->              \n");
       out.write("              <!-- TEXT BASED LOGO -->\n");
-      out.write("              <a class=\"navbar-brand\" href=\"index.html\"><i class=\"fa fa-heartbeat\"></i><span style=\"font-family: cursive\">CARDIAC COUNTERMEASURE</span></a>              \n");
+      out.write("              <a class=\"navbar-brand\" href=\"patienthomepage.jsp\"><i class=\"fa fa-heartbeat\"></i><span style=\"font-family: cursive\">CARDIAC COUNTERMEASURE</span></a>              \n");
       out.write("              <!-- IMG BASED LOGO  -->\n");
       out.write("              <!--  <a class=\"navbar-brand\" href=\"index.html\"><img src=\"images/logo.png\" alt=\"logo\"></a>   -->                    \n");
       out.write("            </div>\n");
       out.write("            <div id=\"navbar\" class=\"navbar-collapse collapse\">\n");
+      out.write("                \n");
+      out.write("            \n");
       out.write("              <ul id=\"top-menu\" class=\"nav navbar-nav navbar-right main-nav\">\n");
-      out.write("                  <li class=\"active\"><a href=\"patienthomepage.jsp\">Home</a></li>\n");
+      out.write("                  <li><a href=\"patienthomepage.jsp\">Home</a></li>\n");
       out.write("                \n");
       out.write("                <li class=\"dropdown\">\n");
       out.write("                  <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Services <span class=\"fa fa-angle-down\"></span></a>\n");
       out.write("                  <ul class=\"dropdown-menu\" role=\"menu\">\n");
-      out.write("                    <li><a href=\"medical-counseling.html\">Heart-attack detection</a></li>\n");
-      out.write("                    <li><a href=\"medical-research.html\">Consult Cariac</a></li>\n");
-      out.write("                    <li><a href=\"blood-bank.html\">Laboratory test</a></li>\n");
+      out.write("                      <li><a href=\"patient_heart_attack_services.jsp\">Heart-attack detection</a></li>\n");
+      out.write("                      <li><a href=\"consult_cardiac.jsp\">Consult Cardiac</a></li>\n");
+      out.write("                      <li><a href=\"consult_lab.jsp\">Consult Laboratory</a></li>\n");
+      out.write("                      <li><a href=\"patient_view_docappointment\">View Doctor Appointment</a></li>\n");
+      out.write("                      <li><a href=\"patient_view_labappointment\">View Laboratory Appointment</a></li>\n");
+      out.write("                      <li><a href=\"past_systemreport\">View past system reports</a></li>\n");
+      out.write("                      <li><a href=\"past_systemreport\">View Lab reports</a></li>\n");
+      out.write("                      \n");
       out.write("                  </ul>\n");
       out.write("                </li>\n");
-      out.write("                <li class=\"active\"><a href=\"patienthomepage.jsp\">Blog</a></li>\n");
+      out.write("                <li><a href=\"Blogs.jsp\">Blog</a></li>\n");
       out.write("                <li><a href=\"features.html\">FAQs</a></li>\n");
-      out.write("                <li><a href=\"contact.html\">Contact Us</a></li>\n");
-      out.write("                <li><a href=\"patient_myprofile.jsp\">My Profile</a></li>\n");
+      out.write("                <li><a href=\"ContactUs.jsp\">Contact Us</a></li>\n");
+      out.write("                <li><a href=\"myprofile\">My Profile</a></li>\n");
+      out.write("                <li><a href=\"logoutserv\">LogOut</a></li>\n");
       out.write("              </ul>           \n");
       out.write("            </div><!--/.nav-collapse -->\n");
       out.write("          </div>     \n");
@@ -144,6 +159,8 @@ public final class patient_005fheart_005fattack_005fservices_jsp extends org.apa
       out.write("      </div>\n");
       out.write("      <!-- END MENU -->    \n");
       out.write("    </header>\n");
+      out.write("    <!--=========== END HEADER SECTION ================-->  ");
+      out.write("\n");
       out.write("    <!--=========== END HEADER SECTION ================-->   \n");
       out.write("\n");
       out.write("    <section id=\"blogArchive\">      \n");
@@ -186,8 +203,8 @@ public final class patient_005fheart_005fattack_005fservices_jsp extends org.apa
       out.write("                      <div class=\"service-icon\">\n");
       out.write("                        <span class=\"fa fa-stethoscope service-icon-effect\"></span>  \n");
       out.write("                      </div>                      \n");
-      out.write("                      <h3><a href=\"#\">Cardiac Monitoring</a></h3>\n");
-      out.write("                      <p>this is a tool which monitors your day to day life and if you are taking any resources in abundant manner it will warn you.</p>\n");
+      out.write("                     <h3><a href=\"consult_cardiac.jsp\">Doctor Appointment</a></h3>\n");
+      out.write("                      <p>Doctor Appointment can be taken within a minute. No need to search every hospital if cardiologist is available or not</p>\n");
       out.write("                    </div>\n");
       out.write("                  </div>\n");
       out.write("                  <!-- Start Single Service -->\n");
@@ -206,7 +223,7 @@ public final class patient_005fheart_005fattack_005fservices_jsp extends org.apa
       out.write("                      <div class=\"service-icon\">\n");
       out.write("                        <span class=\"fa fa-h-square service-icon-effect\"></span>  \n");
       out.write("                      </div>                      \n");
-      out.write("                      <h3><a href=\"#\">Heart-attack risk factor</a></h3>\n");
+      out.write("                        <h3><a href=\"calculatefactorrisk\">Heart-attack risk factor</a></h3>\n");
       out.write("                      <p>There are various factors in your day to day life which can lead you to heart-attack and you are never aware baout it, let's test your risk factor.</p>\n");
       out.write("                    </div>\n");
       out.write("                  </div>\n");
@@ -236,7 +253,7 @@ public final class patient_005fheart_005fattack_005fservices_jsp extends org.apa
       out.write("                      <div class=\"service-icon\">\n");
       out.write("                        <span class=\"fa fa-ambulance service-icon-effect\"></span>  \n");
       out.write("                      </div>                      \n");
-      out.write("                      <h3><a href=\"#\">24 Hours Laboratory Service</a></h3>\n");
+      out.write("                      <h3><a href=\"consult_lab.jsp\">24 Hours Laboratory Service</a></h3>\n");
       out.write("                      <p>this is the list of laboratories which provide 24hours of asylum, You can book your slot for an appointment</p>\n");
       out.write("                    </div>\n");
       out.write("                  </div>\n");

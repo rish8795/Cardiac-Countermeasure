@@ -4,6 +4,7 @@
     Author     : Dell
 --%>
 
+<%@page import="model.Lab"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -85,60 +86,7 @@
     <!-- END SCROLL TOP BUTTON -->
 
     <!--=========== BEGIN HEADER SECTION ================-->
-   <header id="header">
-      <!-- BEGIN MENU -->
-      <div class="menu_area">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">  
-          <div class="container">
-            <div class="navbar-header">
-              <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <!-- LOGO -->              
-              <!-- TEXT BASED LOGO -->
-              <a class="navbar-brand" href="Labhomepage.jsp"><i class="fa fa-heartbeat"></i><span style="font-family: cursive">CARDIAC COUNTERMEASURE</span></a>              
-              <!-- IMG BASED LOGO  -->
-              <!--  <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>   -->                    
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-                  <li class="active"><a href="Labhomepage.jsp">Home</a></li>
-                
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="fa fa-angle-down"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="medical-counseling.html">List of Appointment</a></li>
-                    <li><a href="medical-research.html">Approved Appointment</a></li>
-                    <li><a href="medical-research.html">Test List</a></li>
-                     <li><a href="medical-research.html">Upload Report</a></li>
-                 </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blogs <span class="fa fa-angle-down"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="blog-archive.html">View Blogs</a></li>
-                    <li><a href="blog-archive-with-left-sidebar.html">Write Blog</a></li>
-                    <li><a href="blog-archive-with-right-sidebar.html">Blog Archive with Right Sidebar</a></li>
-                    <li><a href="blog-single.html">Blog Single</a></li>
-                    <li><a href="blog-single-with-left-sidebar.html">Blog Single with Left Sidebar</a></li>
-                    <li><a href="blog-single-with-right-sidebar.html">Blog Single with Right Sidebar</a></li>           
-                  </ul>
-                </li>
-                 
-                <li><a href="features.html">FAQs</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="features.html">My Profile</a></li>
-              </ul>           
-            </div><!--/.nav-collapse -->
-          </div>     
-        </nav>  
-      </div>
-      <!-- END MENU -->    
-    </header>
+    <%@include file="header_lab.jsp" %>
     <!--=========== END HEADER SECTION ================-->
     
     <!--=========== START BLOG SECTION ================-->       
@@ -160,28 +108,35 @@
                         <!-- Start sidebar widget -->
                          <div class="sidebar-widget">
                           <ul class="archives">
-                            <li><a title="May 2015" href="#">Edit Profile</a></li>
-                            <li><a title="April 2015" href="#">Change Password</a></li>
-                            <li><a title="March 2015" href="#">Add Test</a></li>
+                              <li><a title="May 2015" href="lab_profile">Edit Profile</a></li>
+                              <li><a title="April 2015" href="change_password_lab.jsp">Change Password</a></li>
+                              <li><a title="March 2015" href="addnewtest">Add Test</a></li>
+                              <li><a title="April 2015" href="lab_mytest">My Test</a></li>
+                              
+                            
                           </ul>
                         </div>
+                         <% if(request.getAttribute("pdata")!=null){
+                             Lab p =(Lab)request.getAttribute("pdata"); %>
+                        
                         <div stylr="width:1463px; height:1000px">
-                        <form method="post" class="submitphoto_form" action="patreg" style="margin-left: 420px;margin-top: 20px;margin-right: 60px;width: 890px; height: 1000px">
-                            <span class="my_profile">Laboratory:</span> <input type="text" class="my_profile_form" placeholder="" name="p_name" style="margin-left: -155px;"></br>
-                            <span class="my_profile">Website:</span> <input type="text" class="my_profile_form" placeholder="" name="p_lastname" style="margin-left: -128px;"></br>
-                            <span class="my_profile">Contact:</span> <input type="text" class="my_profile_form" placeholder="" name="birth_date" style="margin-left: -125px;"></br>
-                            <span class="my_profile"> Address line1:</span>  <input type="text" class="my_profile_form"  placeholder="" name="line1" style="margin-left: -175px;"></br>
-                            <span class="my_profile">Address line2:</span>  <input type="text" class="my_profile_form"  placeholder="" name="line2" style="margin-left: -175px;"></br>
-                            <span class="my_profile">State:</span>  <input type="text" class="my_profile_form" placeholder="" name="" style="margin-left: -97px;"></br>
-                            <span class="my_profile">City:</span> <input type="text" class="my_profile_form" placeholder="" name="" style="margin-left: -91px;"></br>
-                            <span class="my_profile">Pincode:</span> <input type="text" class="my_profile_form" placeholder="" name="pincode" style="margin-left: -122px;"></br>
+                        <form method="post" class="submitphoto_form" action="lab_profile" style="margin-left: 420px;margin-top: 20px;margin-right: 60px;width: 890px; height: 1000px">
+                            <span class="my_profile">Laboratory:</span> <input type="text" class="my_profile_form" placeholder="" value=" <%=p.getLabName() %>" name="p_name" style="margin-left: -155px;"></br>
+                            <span class="my_profile">Website:</span> <input type="text" class="my_profile_form" placeholder="" value=" <%=p.getWebsite() %>" name="p_lastname" style="margin-left: -128px;"></br>
+                            <span class="my_profile">Contact:</span> <input type="text" class="my_profile_form" placeholder="" value=" <%=p.getContactNum() %>" name="birth_date" style="margin-left: -125px;"></br>
+                            <span class="my_profile"> Address line1:</span>  <input type="text" class="my_profile_form"  placeholder="" value=" <%=p.getAddressid().getLine1() %>" name="line1" style="margin-left: -184px;"></br>
+                            <span class="my_profile">Address line2:</span>  <input type="text" class="my_profile_form"  placeholder="" value=" <%=p.getAddressid().getLine2() %>" name="line2" style="margin-left: -186px;"></br>
+                            <span class="my_profile">State:</span>  <input type="text" class="my_profile_form" placeholder="" disabled value=" <%=p.getAddressid().getSId().getStateName() %>" name="" style="margin-left: -111px;"></br>
+                            <span class="my_profile">City:</span> <input type="text" class="my_profile_form" placeholder="" disabled value="<%= p.getAddressid().getCityId().getCityName()  %>" name="" style="margin-left: -108px;"></br>
+                            <span class="my_profile">Pincode:</span> <input type="text" class="my_profile_form" placeholder="" disabled value="<%= p.getAddressid().getPincode() %>" name="pincode" style="margin-left: -141px;"></br>
+                            <span class="my_profile">Status:</span> <input type="text" class="my_profile_form" placeholder="" disabled value="<%= p.getStatus() %>" name="pincode" style="margin-left: -114px;"></br>
+                            <button name="btn_update" value="UPDATE" class="wpcf7-submit button--itzel" type="submit"><i class="button__icon fa fa-envelope"></i><span>Update Profile</span></button>
                         </form>
                         </div>
+                            
+                                <% } %>
                        
-                            <div class="container">
-                                <img class="img-center" src="images/doctor-1.jpg" style="margin-top: -1000px; margin-right: -39px; width: 15% ">
-                            </div>
-                        
+                            
                                                            <!-- Start Social Share-->
                               <div class="social-share">
                                <h3></h3>

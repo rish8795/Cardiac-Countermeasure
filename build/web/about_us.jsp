@@ -320,7 +320,7 @@
       </div>
     </section>
     <!--=========== End Doctors SECTION ================-->
-       <!--=========== BEGAIN Why Choose Us SECTION ================-->
+      <!--=========== BEGAIN Why Choose Us SECTION ================-->
     <section id="whychooseSection">
       <div class="container">
         <div class="row">
@@ -359,8 +359,8 @@
                       </a>
                     </div>
                     <div class="media-body">
-                      <h4 class="media-heading">Great Infrastructure</h4>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>  
+                      <h4 class="media-heading">Instant Solution</h4>
+                      <p>Without taking any appointment by sitting at your home you can get to know the risk factor of your heart-attack</p>  
                     </div>
                   </div>
                   <div class="media">
@@ -371,7 +371,7 @@
                     </div>
                     <div class="media-body">
                       <h4 class="media-heading">Qualified Doctors</h4>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>  
+                      <p>We provide the suport of high-profiled doctors for your Asylum</p>  
                     </div>
                   </div>
                   <div class="media">
@@ -381,8 +381,8 @@
                       </a>
                     </div>
                     <div class="media-body">
-                      <h4 class="media-heading">Emergency Support</h4>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>  
+                      <h4 class="media-heading">Emergency Laboratory Support</h4>
+                      <p>If it's an emergency you can take an appointment of the laboratories and conduct test as soon as possible.</p>  
                     </div>
                   </div>
                 </div>
@@ -393,7 +393,6 @@
       </div>
     </section>
     <!--=========== END Why Choose Us SECTION ================-->
-
 
     <!--=========== BEGAIN Counter SECTION ================-->
     <section id="counterSection">

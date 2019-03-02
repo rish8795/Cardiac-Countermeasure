@@ -5,7 +5,11 @@ JSP
 *F
 + 0 heartattack_smoker.jsp
 heartattack_smoker.jsp
++ 1 header_patient.jsp
+header_patient.jsp
 *L
-1:44
-6,359:45
+1:49
+6,164:50
+1#1,45:214
+169#0,144:259
 *E

@@ -5,6 +5,18 @@ JSP
 *F
 + 0 Doctor_myprofile.jsp
 Doctor_myprofile.jsp
++ 1 header_doctor.jsp
+header_doctor.jsp
 *L
-5,302:44
+5,85:50
+1#1,47:135
+89#0,28:182
+116,2:210
+117,3:212
+120,8:215,3
+128:239
+129:240,3
+130,5:243
+135:248,3
+136,120:251
 *E

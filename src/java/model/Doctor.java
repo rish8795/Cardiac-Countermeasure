@@ -7,7 +7,9 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +18,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -35,8 +39,13 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Doctor.findByBirthDate", query = "SELECT d FROM Doctor d WHERE d.birthDate = :birthDate"),
     @NamedQuery(name = "Doctor.findByContactnum", query = "SELECT d FROM Doctor d WHERE d.contactnum = :contactnum"),
     @NamedQuery(name = "Doctor.findByEmailId", query = "SELECT d FROM Doctor d WHERE d.emailId = :emailId"),
-    @NamedQuery(name = "Doctor.findByStatus", query = "SELECT d FROM Doctor d WHERE d.status = :status")})
+    @NamedQuery(name = "Doctor.findByStatus", query = "SELECT d FROM Doctor d WHERE d.status = :status"),
+    @NamedQuery(name = "Doctor.findByImageName", query = "SELECT d FROM Doctor d WHERE d.imageName = :imageName")})
 public class Doctor implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "dId")
+    private Collection<Blog> blogCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "dId")
+    private Collection<DoctorAppointment> doctorAppointmentCollection;
     private static final long serialVersionUID = 1L;
     @Id @GeneratedValue
     @Basic(optional = false)
@@ -63,6 +72,8 @@ public class Doctor implements Serializable {
     @Basic(optional = false)
     @Column(name = "status")
     private String status;
+    @Column(name = "image_name")
+    private String imageName;
     @JoinColumn(name = "Address_id", referencedColumnName = "Address_id")
     @ManyToOne(optional = false)
     private Addressdetails addressid;
@@ -158,6 +169,14 @@ public class Doctor implements Serializable {
         this.status = status;
     }
 
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
     public Addressdetails getAddressid() {
         return addressid;
     }
@@ -213,6 +232,24 @@ public class Doctor implements Serializable {
     @Override
     public String toString() {
         return "model.Doctor[ dId=" + dId + " ]";
+    }
+
+    @XmlTransient
+    public Collection<DoctorAppointment> getDoctorAppointmentCollection() {
+        return doctorAppointmentCollection;
+    }
+
+    public void setDoctorAppointmentCollection(Collection<DoctorAppointment> doctorAppointmentCollection) {
+        this.doctorAppointmentCollection = doctorAppointmentCollection;
+    }
+
+    @XmlTransient
+    public Collection<Blog> getBlogCollection() {
+        return blogCollection;
+    }
+
+    public void setBlogCollection(Collection<Blog> blogCollection) {
+        this.blogCollection = blogCollection;
     }
     
 }

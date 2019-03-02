@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Admin;
 import model.Doctor;
 import model.Lab;
 import model.Login;
@@ -55,27 +56,41 @@ public class LogServ extends HttpServlet {
                 cr.add(Restrictions.eq("password", request.getParameter("password")));
                 
                 ArrayList<Login> all = (ArrayList<Login>)cr.list();
-                Login l = all.get(0);
-                String role=l.getRole();
+                      HttpSession hs  = request.getSession();
+         
                 
-                HttpSession hs  = request.getSession();
-                hs.setAttribute("l2", l);
-                
-                tr.commit();
 //                Login l1 = (Login)hs.getAttribute("l2");
                 
-                if(all.size()==0)
+                if(all.isEmpty())
                 {
                     
+                    
+                    hs.setAttribute("msg", "User id or password doesnot match");
+                    tr.commit();
+                    
+                    
+                    
                     path="login.jsp";
-                    out.println("failed");
+                    
+                    
                     
                 }
                 else
                 {
+                               Login l = all.get(0);
+                String role=l.getRole();
+                
+                hs.setAttribute("l2", l);
+      
                     if(role.equals("patient"))
                     {
                         
+                        Criteria cr1 = ss.createCriteria(Patient.class);
+                        cr1.add(Restrictions.eq("usedId", l));
+                        ArrayList<Patient> pList = (ArrayList<Patient> )cr1.list();
+                        Patient p = pList.get(0);
+                          tr.commit();
+                        hs.setAttribute("patient", p);
                         path = "patienthomepage.jsp";
                         
                     }
@@ -86,25 +101,52 @@ public class LogServ extends HttpServlet {
                         cr1.add(Restrictions.eq("userId", l));
                         ArrayList<Doctor> dList = (ArrayList<Doctor> )cr1.list();
                         Doctor d = dList.get(0);
+                          tr.commit();
                         hs.setAttribute("doctor", d);
                         path = "doctorhomepage.jsp";
                         
                     }
-                    else 
+                    else if(role.equals("Laboratory"))
                     {
                         Criteria cr1 = ss.createCriteria(Lab.class);
                         cr1.add(Restrictions.eq("userId", l));
                         ArrayList<Lab> lList = (ArrayList<Lab> )cr1.list();
                         Lab L = lList.get(0);
+                          tr.commit();
                         hs.setAttribute("lab", L);
                         path = "Labhomepage.jsp";
                         
                     }
+                    else if(role.equals("admin"))
+                    {
+                        
+                        Criteria cr1 = ss.createCriteria(Admin.class);
+                        cr1.add(Restrictions.eq("username",request.getParameter("username")));
+                        ArrayList<Admin> lList = (ArrayList<Admin> )cr1.list();
+                        Admin L = lList.get(0);
+                          tr.commit();
+                        hs.setAttribute("admin", L);
+                        path = "Admin_homepage.jsp";
+                        
+                    }
+                    else
+                    {
+                        
+                        
+                         hs.setAttribute("msg", "User id or password doesnot match");
+                        tr.commit();
                     
+                        
+                        path="login.jsp";
+                    
+                       
+                    
+                    }
                 }
-               // out.println(role);
+                
+//                out.println(role);
                // out.print(path);
-              
+//                tr.commit();
               RequestDispatcher rd = request.getRequestDispatcher(path);
               rd.forward(request, response);
               

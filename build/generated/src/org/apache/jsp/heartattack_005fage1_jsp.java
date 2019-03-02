@@ -201,10 +201,10 @@ public final class heartattack_005fage1_jsp extends org.apache.jasper.runtime.Ht
       out.write("    color: initial;\n");
       out.write("    margin-top: -100px;\">\n");
       out.write("            <h1  style=\"color:#31708F;\"> <u>Factors</u></h1></br>\n");
-      out.write("            <p style=\"color: darkorange;\">Do you have Diabeties?</p>\n");
-      out.write("            <img class=\"img-center\" src=\"images/motherage.jpg.jpg\">\n");
-      out.write("            <input type=\"radio\" name=\"radio\" value=\"\"  style=\"color: red\" /> <a href=\"heartattack_obesity.jsp?id=0\">Yes</a><br>\n");
-      out.write("            <input type=\"radio\" name=\"radio\" value=\"\" style=\"color: green\" /> <a href=\"heartattack_obesity.jsp?id=1\">No</a>\n");
+      out.write("            <p style=\"color: darkorange;\">Do your Mother had heart-attack before age of 60?</p>\n");
+      out.write("            <img class=\"img-center\" src=\"images/motherage.jpg\">\n");
+      out.write("            <input type=\"radio\" name=\"radio\" value=\"\"  style=\"color: red\" /> <a href=\"heartattack_chestpain.jsp?id=0\">Yes</a><br>\n");
+      out.write("            <input type=\"radio\" name=\"radio\" value=\"\" style=\"color: green\" /> <a href=\"heartattack_chestpain.jsp?id=1\">No</a>\n");
       out.write("          </div>\n");
       out.write("      <div class=\"container\">\n");
       out.write("        ");
@@ -226,7 +226,7 @@ if(a==1)
             {
             
       out.write("\n");
-      out.write("            <div id=\"chartdiv\" style=\"width: 57%; height: 367px; margin-top: -710px; background-color: rgb(247, 247, 247);\" ></div>\n");
+      out.write("            <div id=\"chartdiv2\" style=\"width: 57%; height: 367px; margin-top: -710px; background-color: rgb(247, 247, 247);\" ></div>\n");
       out.write("            ");
 }
       out.write("\n");
@@ -235,7 +235,7 @@ if(a==2)
             {
             
       out.write("\n");
-      out.write("            <div id=\"chartdiv2\" style=\"width: 57%; height: 367px; margin-top: -710px; background-color: rgb(247, 247, 247);\" ></div>\n");
+      out.write("            <div id=\"chartdiv\" style=\"width: 57%; height: 367px; margin-top: -710px; background-color: rgb(247, 247, 247);\" ></div>\n");
       out.write("            ");
 }
       out.write("\n");
@@ -367,12 +367,12 @@ if(a==2)
       out.write("\t\t\t\t\t\t\t\"innerRadius\": 21,\n");
       out.write("\t\t\t\t\t\t\t\"radius\": \"88%\",\n");
       out.write("\t\t\t\t\t\t\t\"startWidth\": 30,\n");
-      out.write("\t\t\t\t\t\t\t\"value\": 7\n");
+      out.write("\t\t\t\t\t\t\t\"value\": 32\n");
       out.write("\t\t\t\t\t\t}\n");
       out.write("\t\t\t\t\t],\n");
       out.write("\t\t\t\t\t\"axes\": [\n");
       out.write("\t\t\t\t\t\t{\n");
-      out.write("\t\t\t\t\t\t\t\"bottomText\": \"7.00 %\",\n");
+      out.write("\t\t\t\t\t\t\t\"bottomText\": \"32.00 %\",\n");
       out.write("\t\t\t\t\t\t\t\"bottomTextYOffset\": -20,\n");
       out.write("\t\t\t\t\t\t\t\"endValue\": 100,\n");
       out.write("\t\t\t\t\t\t\t\"id\": \"GaugeAxis-1\",\n");
@@ -549,12 +549,12 @@ if(a==2)
       out.write("\t\t\t\t\t\t\t\"innerRadius\": 21,\n");
       out.write("\t\t\t\t\t\t\t\"radius\": \"88%\",\n");
       out.write("\t\t\t\t\t\t\t\"startWidth\": 30,\n");
-      out.write("\t\t\t\t\t\t\t\"value\": 0\n");
+      out.write("\t\t\t\t\t\t\t\"value\": 22\n");
       out.write("\t\t\t\t\t\t}\n");
       out.write("\t\t\t\t\t],\n");
       out.write("\t\t\t\t\t\"axes\": [\n");
       out.write("\t\t\t\t\t\t{\n");
-      out.write("\t\t\t\t\t\t\t\"bottomText\": \"0.00 %\",\n");
+      out.write("\t\t\t\t\t\t\t\"bottomText\": \"22.00 %\",\n");
       out.write("\t\t\t\t\t\t\t\"bottomTextYOffset\": -20,\n");
       out.write("\t\t\t\t\t\t\t\"endValue\": 100,\n");
       out.write("\t\t\t\t\t\t\t\"id\": \"GaugeAxis-1\",\n");

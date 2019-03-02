@@ -12,7 +12,7 @@
     
 	<meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CardiacCountermeasure:- SignIn</title>
+	<title>Cardiac Countermeasure:- Log_In</title>
 
 	<!-- Google Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
@@ -49,7 +49,14 @@
 			<div class="box-header">
 				<h2>Log In</h2>
 			</div>
-			<label  for="username">Username</label>
+                    <label> <span style="color: red;">
+                                <% if (request.getAttribute("msg") != null) {%>
+                                 <%=request.getAttribute("msg")%>
+                                 <% }%> </span> </label>
+			<label  for="username">Username <span style="color: red;">
+                                <% if (request.getAttribute("msg") != null) {%>
+                                 <%=request.getAttribute("msg")%>
+                                 <% }%> </span> </label>
 			<br/>
                         <input required name="username" type="text" id="username">
 			<br/>
@@ -59,8 +66,8 @@
 			<br/>
 			<button type="submit">Sign In</button>
 			<br/>
-                        <a href="#"><p class="small">Forgot your password?</p></a>
-                        <label for="new user">new user?</label><a href="http://localhost:8084/CardiacCountermeasure/patient_reg.jsp"> <button type="button">SignUp </button></a>
+                        <a href="forgotpassword.jsp"><p class="small">Forgot your password?</p></a>
+                        <label for="new user">new user?</label><a href="Whoru.jsp"> <button type="button">SignUp </button></a>
                           </div>
         </div>
                 

@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import model.Doctor;
 
 public final class Doctor_005fmyprofile_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -10,6 +11,11 @@ public final class Doctor_005fmyprofile_jsp extends org.apache.jasper.runtime.Ht
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
+
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/header_doctor.jsp");
+  }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -43,6 +49,7 @@ public final class Doctor_005fmyprofile_jsp extends org.apache.jasper.runtime.Ht
 
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html lang=\"en\">\n");
       out.write("  <head>\n");
@@ -51,7 +58,7 @@ public final class Doctor_005fmyprofile_jsp extends org.apache.jasper.runtime.Ht
       out.write("    ================================================== -->\n");
       out.write("    <meta charset=\"utf-8\">\n");
       out.write("    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n");
-      out.write("     <title>Cardiac Countermeasure:Laboratory Appointment</title>\n");
+      out.write("     <title>Cardiac Countermeasure:My Profile</title>\n");
       out.write("\n");
       out.write("    <!-- Mobile Specific Metas\n");
       out.write("    ================================================== -->\n");
@@ -124,7 +131,9 @@ public final class Doctor_005fmyprofile_jsp extends org.apache.jasper.runtime.Ht
       out.write("    <!-- END SCROLL TOP BUTTON -->\n");
       out.write("\n");
       out.write("    <!--=========== BEGIN HEADER SECTION ================-->\n");
-      out.write("   <header id=\"header\">\n");
+      out.write("    ");
+      out.write(" <!--=========== BEGIN HEADER SECTION ================-->\n");
+      out.write("    <header id=\"header\">\n");
       out.write("      <!-- BEGIN MENU -->\n");
       out.write("      <div class=\"menu_area\">\n");
       out.write("        <nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">  \n");
@@ -139,38 +148,29 @@ public final class Doctor_005fmyprofile_jsp extends org.apache.jasper.runtime.Ht
       out.write("              </button>\n");
       out.write("              <!-- LOGO -->              \n");
       out.write("              <!-- TEXT BASED LOGO -->\n");
-      out.write("              <a class=\"navbar-brand\" href=\"Labhomepage.jsp\"><i class=\"fa fa-heartbeat\"></i><span style=\"font-family: cursive\">CARDIAC COUNTERMEASURE</span></a>              \n");
+      out.write("              <a class=\"navbar-brand\" href=\"index.html\"><i class=\"fa fa-heartbeat\"></i><span style=\"font-family: cursive\">CARDIAC COUNTERMEASURE</span></a>              \n");
       out.write("              <!-- IMG BASED LOGO  -->\n");
       out.write("              <!--  <a class=\"navbar-brand\" href=\"index.html\"><img src=\"images/logo.png\" alt=\"logo\"></a>   -->                    \n");
       out.write("            </div>\n");
       out.write("            <div id=\"navbar\" class=\"navbar-collapse collapse\">\n");
       out.write("              <ul id=\"top-menu\" class=\"nav navbar-nav navbar-right main-nav\">\n");
-      out.write("                  <li class=\"active\"><a href=\"Labhomepage.jsp\">Home</a></li>\n");
+      out.write("                  <li class=\"active\"><a href=\"doctorhomepage.jsp\">Home</a></li>\n");
       out.write("                \n");
       out.write("                <li class=\"dropdown\">\n");
       out.write("                  <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Services <span class=\"fa fa-angle-down\"></span></a>\n");
       out.write("                  <ul class=\"dropdown-menu\" role=\"menu\">\n");
-      out.write("                    <li><a href=\"medical-counseling.html\">List of Appointment</a></li>\n");
-      out.write("                    <li><a href=\"medical-research.html\">Approved Appointment</a></li>\n");
-      out.write("                    <li><a href=\"medical-research.html\">Test List</a></li>\n");
-      out.write("                     <li><a href=\"medical-research.html\">Upload Report</a></li>\n");
+      out.write("                      <li><a href=\"get_appointment_doc\">List of Appointment</a></li>\n");
+      out.write("                      <li><a href=\"doc_view_approved_appointment\">Approved Appointment</a></li>\n");
       out.write("                 </ul>\n");
       out.write("                </li>\n");
-      out.write("                <li class=\"dropdown\">\n");
-      out.write("                  <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Blogs <span class=\"fa fa-angle-down\"></span></a>\n");
-      out.write("                  <ul class=\"dropdown-menu\" role=\"menu\">\n");
-      out.write("                    <li><a href=\"blog-archive.html\">View Blogs</a></li>\n");
-      out.write("                    <li><a href=\"blog-archive-with-left-sidebar.html\">Write Blog</a></li>\n");
-      out.write("                    <li><a href=\"blog-archive-with-right-sidebar.html\">Blog Archive with Right Sidebar</a></li>\n");
-      out.write("                    <li><a href=\"blog-single.html\">Blog Single</a></li>\n");
-      out.write("                    <li><a href=\"blog-single-with-left-sidebar.html\">Blog Single with Left Sidebar</a></li>\n");
-      out.write("                    <li><a href=\"blog-single-with-right-sidebar.html\">Blog Single with Right Sidebar</a></li>           \n");
-      out.write("                  </ul>\n");
+      out.write("                \n");
+      out.write("                  <li><a href=\"Blogs.jsp\">Blogs</a></li>\n");
       out.write("                </li>\n");
       out.write("                 \n");
       out.write("                <li><a href=\"features.html\">FAQs</a></li>\n");
-      out.write("                <li><a href=\"contact.html\">Contact Us</a></li>\n");
-      out.write("                <li><a href=\"features.html\">My Profile</a></li>\n");
+      out.write("                <li><a href=\"ContactUs.jsp\">Contact Us</a></li>\n");
+      out.write("                <li><a href=\"doc_profile\">My Profile</a></li>\n");
+      out.write("                <li><a href=\"logoutserv\">LogOut</a></li>\n");
       out.write("              </ul>           \n");
       out.write("            </div><!--/.nav-collapse -->\n");
       out.write("          </div>     \n");
@@ -178,6 +178,8 @@ public final class Doctor_005fmyprofile_jsp extends org.apache.jasper.runtime.Ht
       out.write("      </div>\n");
       out.write("      <!-- END MENU -->    \n");
       out.write("    </header>\n");
+      out.write("    <!--=========== END HEADER SECTION ================-->  ");
+      out.write("\n");
       out.write("    <!--=========== END HEADER SECTION ================-->\n");
       out.write("    \n");
       out.write("    <!--=========== START BLOG SECTION ================-->       \n");
@@ -199,31 +201,54 @@ public final class Doctor_005fmyprofile_jsp extends org.apache.jasper.runtime.Ht
       out.write("                        <!-- Start sidebar widget -->\n");
       out.write("                         <div class=\"sidebar-widget\">\n");
       out.write("                          <ul class=\"archives\">\n");
-      out.write("                            <li><a title=\"May 2015\" href=\"#\">Edit Profile</a></li>\n");
-      out.write("                            <li><a title=\"April 2015\" href=\"#\">Change Password</a></li>\n");
-      out.write("                            <li><a title=\"March 2015\" href=\"#\">Add Test</a></li>\n");
+      out.write("                            <li><a title=\"May 2015\" href=\"doc_profile\">Edit Profile</a></li>\n");
+      out.write("                            <li><a title=\"April 2015\" href=\"change_password_doc.jsp\">Change Password</a></li>\n");
+      out.write("                            \n");
       out.write("                          </ul>\n");
       out.write("                        </div>\n");
+      out.write("                           ");
+ if(request.getAttribute("pdata")!=null){
+                             Doctor p =(Doctor)request.getAttribute("pdata"); 
+      out.write("\n");
       out.write("                        <div stylr=\"width:1463px; height:1000px\">\n");
-      out.write("                        <form method=\"post\" class=\"submitphoto_form\" action=\"patreg\" style=\"margin-left: 420px;margin-top: 20px;margin-right: 60px;width: 890px; height: 1000px\">\n");
-      out.write("                            <span class=\"my_profile\">First_Name:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" name=\"p_name\" style=\"margin-left: -155px;\"></br>\n");
-      out.write("                            <span class=\"my_profile\">Last_Name:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" name=\"p_lastname\" style=\"margin-left: -151px;\"></br>\n");
-      out.write("                            <span class=\"my_profile\">Gender:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" name=\"birth_date\" style=\"margin-left: -114px;\"></br>\n");
-      out.write("                            <span class=\"my_profile\">Birth_Date:</span>  <input type=\"text\" class=\"my_profile_form\"  placeholder=\"\" name=\"line1\" style=\"margin-left: -148px;\"></br>\n");
-      out.write("                            <span class=\"my_profile\">Email_Id:</span>  <input type=\"text\" class=\"my_profile_form\"  placeholder=\"\" name=\"line2\" style=\"margin-left: -125px;\"></br>\n");
-      out.write("                            <span class=\"my_profile\">Contact:</span>  <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" name=\"\" style=\"margin-left: -114px;\"></br>\n");
-      out.write("                            <span class=\"my_profile\">Address_line1:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" name=\"\" style=\"margin-left: -172px;\"></br>\n");
-      out.write("                            <span class=\"my_profile\">Address_line2:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" name=\"pincode\" style=\"margin-left: -176px;\"></br>\n");
-      out.write("                            <span class=\"my_profile\">State:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" name=\"p_name\" style=\"margin-left: -83px;\"></br>\n");
-      out.write("                            <span class=\"my_profile\">City:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" name=\"p_name\" style=\"margin-left: -155px;\"></br>\n");
-      out.write("                            <span class=\"my_profile\">Pincode:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" name=\"p_name\" style=\"margin-left: -155px;\"></br>\n");
-      out.write("                            <span class=\"my_profile\">Speciality:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" name=\"p_name\" style=\"margin-left: -155px;\"></br>\n");
-      out.write("                            <span class=\"my_profile\">Degree:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" name=\"p_name\" style=\"margin-left: -155px;\"></br>\n");
+      out.write("                        <form method=\"post\" class=\"submitphoto_form\" action=\"doc_profile\" style=\"margin-left: 420px;margin-top: 20px;margin-right: 60px;width: 890px; height: 1000px\">\n");
+      out.write("                            <span class=\"my_profile\">First_Name:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" value=\" ");
+      out.print(p.getDFirstname() );
+      out.write("\" name=\"p_firstname\" style=\"margin-left: -155px;\"></br>\n");
+      out.write("                            <span class=\"my_profile\">Last_Name:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" value=\"  ");
+      out.print( p.getDLastname() );
+      out.write("\" name=\"p_lastname\" style=\"margin-left: -151px;\"></br>\n");
+      out.write("                            <span class=\"my_profile\">Gender:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" value=\" ");
+      out.print( p.getGender() );
+      out.write("\" name=\"gender\" style=\"margin-left: -114px;\"></br>\n");
+      out.write("                            <span class=\"my_profile\">Birth_Date:</span>  <input type=\"text\" class=\"my_profile_form\"  placeholder=\"\" value=\"  ");
+      out.print( p.getBirthDate() );
+      out.write("\" name=\"birth_date\" style=\"margin-left: -148px;\"></br>\n");
+      out.write("                            <span class=\"my_profile\">Email_Id:</span>  <input type=\"email\" class=\"my_profile_form\"  placeholder=\"\" value=\" ");
+      out.print( p.getEmailId()  );
+      out.write("\" name=\"email_id\" style=\"margin-left: -125px;\"></br>\n");
+      out.write("                            <span class=\"my_profile\">Contact:</span>  <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" value=\"  ");
+      out.print(p.getContactnum() );
+      out.write("\" name=\"contact_num\" style=\"margin-left: -114px;\"></br>\n");
+      out.write("                            <span class=\"my_profile\">Address_line1:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\"value=\"  ");
+      out.print( p.getAddressid().getLine1() );
+      out.write("\" name=\"line1\" style=\"margin-left: -172px;\"></br>\n");
+      out.write("                            <span class=\"my_profile\">Address_line2:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" value=\"  ");
+      out.print( p.getAddressid().getLine2() );
+      out.write("\" name=\"line2\" style=\"margin-left: -176px;\"></br>\n");
+      out.write("                            \n");
+      out.write("                            <span class=\"my_profile\">Pincode:</span> <input type=\"text\" class=\"my_profile_form\" placeholder=\"\" value=\"  ");
+      out.print( p.getAddressid().getPincode() );
+      out.write("\" name=\"pincode\" style=\"margin-left: -112px;\"></br>\n");
       out.write("                            \n");
       out.write("                            \n");
+      out.write("                            <button name=\"btn_update\" value=\"UPDATE\" class=\"wpcf7-submit button--itzel\" type=\"submit\"><i class=\"button__icon fa fa-envelope\"></i><span>Update Profile</span></button>\n");
       out.write("                        </form>\n");
       out.write("                        </div>\n");
-      out.write("                       \n");
+      out.write("                       ");
+ } 
+      out.write("\n");
+      out.write("                      \n");
       out.write("                            <div class=\"container\">\n");
       out.write("                                <img class=\"img-center\" src=\"images/doctor-1.jpg\" style=\"margin-top: -1000px; margin-right: -39px; width: 15% \">\n");
       out.write("                            </div>\n");

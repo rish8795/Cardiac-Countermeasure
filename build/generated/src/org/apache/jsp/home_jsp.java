@@ -11,6 +11,11 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/header_home.jsp");
+  }
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
@@ -41,6 +46,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -103,7 +109,8 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <!-- END SCROLL TOP BUTTON -->\n");
       out.write("\n");
       out.write("    <!--=========== BEGIN HEADER SECTION ================-->\n");
-      out.write("    <header id=\"header\">\n");
+      out.write("    ");
+      out.write("<header id=\"header\">\n");
       out.write("      <!-- BEGIN MENU -->\n");
       out.write("      <div class=\"menu_area\">\n");
       out.write("        <nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">  \n");
@@ -124,13 +131,13 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\n");
       out.write("            <div id=\"navbar\" class=\"navbar-collapse collapse\">\n");
       out.write("              <ul id=\"top-menu\" class=\"nav navbar-nav navbar-right main-nav\">\n");
-      out.write("                  <li class=\"active\"><a href=\"home.jsp\">Home</a></li>\n");
+      out.write("                  <li ><a href=\"home.jsp\">Home</a></li>\n");
       out.write("                <li><a href=\"about_us.jsp\">About Us</a></li>\n");
       out.write("                \n");
       out.write("                <li><a href=\"ContactUs.jsp\">ContactUs</a></li>\n");
-      out.write("                <li> <a href=\"forums.jsp\">FORUMS </a> </li>\n");
-      out.write("                <li><a href=\"blog-archive-with-left-sidebar.html\">FAQ</a> </li>\n");
-      out.write("                <li> <a href=\"Blogs.jsp\">BLOGS</a></li>\n");
+      out.write("                \n");
+      out.write("                <li><a href=\"FAQs.jsp\">FAQ</a> </li>\n");
+      out.write("                <li> <a href=\"viewblogs\">BLOGS</a></li>\n");
       out.write("                <li><a href=\"login.jsp\">LOGIN</a></li>               \n");
       out.write("                <li><a href=\"Whoru.jsp\">SIGNUP</a></li>\n");
       out.write("              </ul>           \n");
@@ -139,7 +146,8 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </nav>  \n");
       out.write("      </div>\n");
       out.write("      <!-- END MENU -->    \n");
-      out.write("    </header>\n");
+      out.write("    </header>");
+      out.write("\n");
       out.write("    <!--=========== END HEADER SECTION ================-->   \n");
       out.write(" \n");
       out.write("    <!--=========== BEGIN SLIDER SECTION ================-->\n");
@@ -154,9 +162,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("          <div class=\"slider-text\">\n");
       out.write("            <h2> <strong></strong> we provide asylum at your doorsteps</h2>\n");
       out.write("            <p><strong>Cardiac Countermeasure</strong> One thing you need for your whole cardiac problem</p>\n");
-      out.write("            <div class=\"readmore_area\">\n");
-      out.write("              <a data-hover=\"Read More\" href=\"#\"><span>Read More</span></a>                \n");
-      out.write("            </div>\n");
+      out.write("            \n");
       out.write("          </div>\n");
       out.write("        </div>\n");
       out.write("        <!-- End First slide -->\n");
@@ -164,7 +170,12 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!-- Start 2nd slide -->\n");
       out.write("        <div class=\"top-slide-inner\">\n");
       out.write("          <div class=\"slider-img\">\n");
-      out.write("              <img src=\"images/images/images (11).jpg\" alt=\"\">\n");
+      out.write("              <img src=\"images/Medical-Touchscreen-Technology-1.jpg\" alt=\"\">\n");
+      out.write("          </div>\n");
+      out.write("            <div class=\"slider-text\">\n");
+      out.write("            <h2> <strong> Know Your Heart-attack chances in just one touch </strong></h2>\n");
+      out.write("            \n");
+      out.write("            \n");
       out.write("          </div>\n");
       out.write("          \n");
       out.write("        </div>\n");
@@ -178,7 +189,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("          <div class=\"slider-text\">\n");
       out.write("            <h2>A <strong></strong> Best and quick laboratory services for various cardiac tests</h2>\n");
       out.write("                        <div class=\"readmore_area\">\n");
-      out.write("              <a data-hover=\"Read More\" href=\"#\"><span>Read More</span></a>                \n");
+      out.write("            \n");
       out.write("            </div>\n");
       out.write("          </div>\n");
       out.write("        </div>\n");
@@ -271,8 +282,8 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                      <div class=\"service-icon\">\n");
       out.write("                        <span class=\"fa fa-stethoscope service-icon-effect\"></span>  \n");
       out.write("                      </div>                      \n");
-      out.write("                      <h3><a href=\"#\">Cardiac Monitoring</a></h3>\n");
-      out.write("                      <p>this is a tool which monitors your day to day life and if you are taking any resources in abundant manner it will warn you.</p>\n");
+      out.write("                      <h3><a href=\"#\">Doctor Appointment</a></h3>\n");
+      out.write("                      <p>Doctor Appointment can be taken within a minute. No need to search every hospital if cardiologist is available or not</p>\n");
       out.write("                    </div>\n");
       out.write("                  </div>\n");
       out.write("                  <!-- Start Single Service -->\n");
@@ -295,19 +306,10 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                      <p>There are various factors in your day to day life which can lead you to heart-attack and you are never aware baout it, let's test your risk factor.</p>\n");
       out.write("                    </div>\n");
       out.write("                  </div>\n");
+      out.write("                  \n");
       out.write("                  <!-- Start Single Service -->\n");
       out.write("                  <div class=\"col-lg-4 col-md-4\">\n");
-      out.write("                    <div class=\"single-service\">\n");
-      out.write("                      <div class=\"service-icon\">\n");
-      out.write("                        <span class=\"fa fa-medkit service-icon-effect\"></span>  \n");
-      out.write("                      </div>                      \n");
-      out.write("                      <h3><a href=\"#\">Background Checks</a></h3>\n");
-      out.write("                      <p>Background check is an tool which keeps the record of your family memeber details in an emergency situation and it also keeps the record of patient family memebers cardiac details</p>\n");
-      out.write("                    </div>\n");
-      out.write("                  </div>\n");
-      out.write("                  <!-- Start Single Service -->\n");
-      out.write("                  <div class=\"col-lg-4 col-md-4\">\n");
-      out.write("                    <div class=\"single-service\">\n");
+      out.write("                    <div class=\"single-service\" style=\"margin-left: 172px; margin-bottom: -5px\">\n");
       out.write("                      <div class=\"service-icon\">\n");
       out.write("                        <span class=\"fa fa-user-md service-icon-effect\"></span>  \n");
       out.write("                      </div>                      \n");
@@ -317,7 +319,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                  </div>\n");
       out.write("                  <!-- Start Single Service -->\n");
       out.write("                  <div class=\"col-lg-4 col-md-4\">\n");
-      out.write("                    <div class=\"single-service\">\n");
+      out.write("                    <div class=\"single-service\" style=\"margin-left: 190px; margin-bottom: -5px\">\n");
       out.write("                      <div class=\"service-icon\">\n");
       out.write("                        <span class=\"fa fa-ambulance service-icon-effect\"></span>  \n");
       out.write("                      </div>                      \n");

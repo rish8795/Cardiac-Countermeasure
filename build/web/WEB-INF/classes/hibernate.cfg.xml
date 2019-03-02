@@ -7,6 +7,10 @@
     <property name="hibernate.connection.username">sa</property>
     <property name="hibernate.connection.password">icreate</property>
     <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+    <property name="hibernate.current_session_context_class">
+    org.hibernate.context.internal.ThreadLocalSessionContext
+    </property>
+    
     <!--<property name="hibernate.connection.pool_size"></property>-->
     <mapping class="model.Login"/>
     <mapping class="model.Addressdetails"/>
@@ -15,5 +19,22 @@
     <mapping class="model.Qualification"/>
     <mapping class="model.Speciality"/>
     <mapping class="model.Doctor"/>
+    <mapping class="model.State"/>
+    <mapping class="model.City"/>
+    <mapping class="model.DoctorAppointment"/>
+    <mapping class="model.LabAppointment"/>
+    <mapping class="model.Labtest"/>
+    <mapping class="model.Test"/>
+    <mapping class="model.PatienttestDetail"/>
+    <mapping class="model.Admin"/>
+    <mapping class="model.FactorOption"/>
+    <mapping class="model.FactorDetails"/>
+    <mapping class="model.PatientfactorAnswer"/>
+    <mapping class="model.AbsulateRiskMale"/>
+    <mapping class="model.AbsoluteRiskFemale"/>
+    <mapping class="model.Calculationmeteredata"/>
+    <mapping class="model.TestRecommend"/>
+    <mapping class="model.Blog"/>
+    
   </session-factory>
 </hibernate-configuration>

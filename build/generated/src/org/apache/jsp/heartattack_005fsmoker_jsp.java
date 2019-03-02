@@ -11,6 +11,11 @@ public final class heartattack_005fsmoker_jsp extends org.apache.jasper.runtime.
 
   private static java.util.List<String> _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/header_patient.jsp");
+  }
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
@@ -205,7 +210,8 @@ public final class heartattack_005fsmoker_jsp extends org.apache.jasper.runtime.
       out.write("    <!-- END SCROLL TOP BUTTON -->\n");
       out.write("\n");
       out.write("      <!--=========== BEGIN HEADER SECTION ================-->\n");
-      out.write("    <header id=\"header\">\n");
+      out.write("      ");
+      out.write(" <header id=\"header\">\n");
       out.write("      <!-- BEGIN MENU -->\n");
       out.write("      <div class=\"menu_area\">\n");
       out.write("        <nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">  \n");
@@ -220,44 +226,37 @@ public final class heartattack_005fsmoker_jsp extends org.apache.jasper.runtime.
       out.write("              </button>\n");
       out.write("              <!-- LOGO -->              \n");
       out.write("              <!-- TEXT BASED LOGO -->\n");
-      out.write("              <a class=\"navbar-brand\" href=\"home.jsp\"><i class=\"fa fa-heartbeat\"></i><span style=\"font-family: cursive\">CARDIAC COUNTERMEASURE</span></a>              \n");
+      out.write("              <a class=\"navbar-brand\" href=\"index.html\"><i class=\"fa fa-heartbeat\"></i><span style=\"font-family: cursive\">CARDIAC COUNTERMEASURE</span></a>              \n");
       out.write("              <!-- IMG BASED LOGO  -->\n");
       out.write("              <!--  <a class=\"navbar-brand\" href=\"index.html\"><img src=\"images/logo.png\" alt=\"logo\"></a>   -->                    \n");
       out.write("            </div>\n");
       out.write("            <div id=\"navbar\" class=\"navbar-collapse collapse\">\n");
       out.write("              <ul id=\"top-menu\" class=\"nav navbar-nav navbar-right main-nav\">\n");
-      out.write("                <li class=\"active\"><a href=\"index.html\">Home</a></li>\n");
+      out.write("                 <li class=\"active\"><a href=\"patienthomepage.jsp\">Home</a></li>\n");
       out.write("                \n");
       out.write("                <li class=\"dropdown\">\n");
       out.write("                  <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Services <span class=\"fa fa-angle-down\"></span></a>\n");
       out.write("                  <ul class=\"dropdown-menu\" role=\"menu\">\n");
-      out.write("                    <li><a href=\"medical-counseling.html\">Heart-attack detection</a></li>\n");
-      out.write("                    <li><a href=\"medical-research.html\">Consult Cariac</a></li>\n");
-      out.write("                    <li><a href=\"blood-bank.html\">Laboratory test</a></li>\n");
+      out.write("                      <li><a href=\"patient_heart_attack_services.jsp\">Heart-attack detection</a></li>\n");
+      out.write("                      <li><a href=\"consult_cardiac.jsp\">Consult Cardiac</a></li>\n");
+      out.write("                      <li><a href=\"consult_lab.jsp\">Consult Laboratory</a></li>\n");
+      out.write("                      <li><a href=\"patient_view_docappointment\">View Doctor Appointment</a></li>\n");
+      out.write("                      <li><a href=\"patient_view_labappointment\">View Laboratory Appointment</a></li>\n");
       out.write("                  </ul>\n");
       out.write("                </li>\n");
-      out.write("                <li class=\"dropdown\">\n");
-      out.write("                  <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Blogs <span class=\"fa fa-angle-down\"></span></a>\n");
-      out.write("                  <ul class=\"dropdown-menu\" role=\"menu\">\n");
-      out.write("                    <li><a href=\"blog-archive.html\">Blog Archive</a></li>\n");
-      out.write("                    <li><a href=\"blog-archive-with-left-sidebar.html\">Blog Archive with Left Sidebar</a></li>\n");
-      out.write("                    <li><a href=\"blog-archive-with-right-sidebar.html\">Blog Archive with Right Sidebar</a></li>\n");
-      out.write("                    <li><a href=\"blog-single.html\">Blog Single</a></li>\n");
-      out.write("                    <li><a href=\"blog-single-with-left-sidebar.html\">Blog Single with Left Sidebar</a></li>\n");
-      out.write("                    <li><a href=\"blog-single-with-right-sidebar.html\">Blog Single with Right Sidebar</a></li>           \n");
-      out.write("                  </ul>\n");
-      out.write("                </li>\n");
-      out.write("                 \n");
+      out.write("                <li><a href=\"Blogs.jsp\">Blog</a></li>\n");
       out.write("                <li><a href=\"features.html\">FAQs</a></li>\n");
-      out.write("                <li><a href=\"contact.html\">Contact Us</a></li>\n");
-      out.write("                <li><a href=\"features.html\">My Profile</a></li>\n");
+      out.write("                <li><a href=\"ContactUs.jsp\">Contact Us</a></li>\n");
+      out.write("                <li><a href=\"myprofile\">My Profile</a></li>\n");
+      out.write("                <li><a href=\"logoutserv\">LogOut</a></li>\n");
       out.write("              </ul>           \n");
       out.write("            </div><!--/.nav-collapse -->\n");
       out.write("          </div>     \n");
       out.write("        </nav>  \n");
       out.write("      </div>\n");
       out.write("      <!-- END MENU -->    \n");
-      out.write("    </header>\n");
+      out.write("    </header>");
+      out.write("\n");
       out.write("      \n");
       out.write("       <section id=\"blogArchive\">      \n");
       out.write("      <div class=\"row\">\n");

@@ -65,43 +65,7 @@
 
   
     <!--=========== BEGIN HEADER SECTION ================-->
-    <header id="header">
-      <!-- BEGIN MENU -->
-      <div class="menu_area">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">  
-          <div class="container">
-            <div class="navbar-header">
-              <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <!-- LOGO -->              
-              <!-- TEXT BASED LOGO -->
-              <a class="navbar-brand" href="home.jsp"><i class="fa fa-heartbeat"></i><span style="font-family: cursive;">CARDIAC COUNTERMEASURE</span></a>              
-              <!-- IMG BASED LOGO  -->
-              <!--  <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>   -->                    
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-                   <li><a href="home.jsp">Home</a></li>
-                <li><a href="about_us.jsp">About Us</a></li>
-                
-                <li class="active"><a href="ContactUs.jsp">ContactUs</a></li>
-                <li> <a href="forums.jsp">FORUMS </a> </li>
-                <li><a href="blog-archive-with-left-sidebar.html">FAQ</a> </li>
-                <li> <a href="Blogs.jsp">BLOGS</a></li>
-                <li><a href="login.jsp">LOGIN</a></li>               
-                <li><a href="Whoru.jsp">SIGNUP</a></li>
-              </ul>           
-            </div><!--/.nav-collapse -->
-          </div>     
-        </nav>  
-      </div>
-      <!-- END MENU -->    
-    </header>
+    <%@include file="header_home.jsp" %>
     <!--=========== END HEADER SECTION ================-->   
    <section id="blogArchive">      
       <div class="row">
@@ -137,12 +101,17 @@
                 <h2>Contact Us</h2>
                 <div class="line"></div>
               </div>
+            <span style="color: green;">
+                <% if (request.getAttribute("msg") != null) {%>
+                <%=request.getAttribute("msg")%>
+                <% }%>
+            </span> 
               <p>Fill out all required Field to send a Message. Please don't spam,Thank you!</p>
-              <form class="submitphoto_form">
-                <input type="text" class="wp-form-control wpcf7-text" placeholder="Your name">
-                <input type="mail" class="wp-form-control wpcf7-email" placeholder="Email address">          
-                <input type="text" class="wp-form-control wpcf7-text" placeholder="Subject">
-                <textarea class="wp-form-control wpcf7-textarea" cols="30" rows="10" placeholder="What would you like to tell us"></textarea>
+              <form class="submitphoto_form" action="contactus">
+                  <input type="text" required class="wp-form-control wpcf7-text" name="name" placeholder="Your name">
+                  <input type="mail" required class="wp-form-control wpcf7-email" name="email" placeholder="Email address">          
+                  <input type="text" required class="wp-form-control wpcf7-text" name="subject" placeholder="Subject">
+                  <textarea name="text" required class="wp-form-control wpcf7-textarea" cols="30" rows="10" placeholder="What would you like to tell us"></textarea>
                <button class="wpcf7-submit button--itzel" type="submit"><i class="button__icon fa fa-envelope"></i><span>Send Message</span></button>                
               </form>
             </div>
